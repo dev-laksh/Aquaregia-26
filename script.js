@@ -8,6 +8,8 @@ cursor.style.top = e.pageY + 'px';
 cursor.style.left = e.pageX + 'px';            
 })
 
+
+
 // background
 const canvas = document.getElementById("snow");
 const ctx = canvas.getContext("2d");
