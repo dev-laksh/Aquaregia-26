@@ -1,12 +1,13 @@
 // cursor
-let cursor = document.querySelector('#cursor');
-let body= document.querySelector('body');
+const cursor = document.querySelector('#cursor');
+const body = document.body;
+
 document.addEventListener('mousemove', (e) => {
-body.style.backgroundPositionX = e.pageX/-4 + 'px';
-body.style.backgroundPositionY = e.pageY/-4 + 'px';
-cursor.style.top = e.pageY + 'px';
-cursor.style.left = e.pageX + 'px';            
-})
+    body.style.backgroundPositionX = `${e.pageX / -4}px`;
+    body.style.backgroundPositionY = `${e.pageY / -4}px`;
+
+    cursor.style.transform = `translate(${e.pageX}px, ${e.pageY}px)`;
+});
 
 // background
 const canvas = document.getElementById("snow");

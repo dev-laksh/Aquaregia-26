@@ -469,20 +469,33 @@ body {
         }
 
 /* cursor */
-#cursor{
+/* Magic Wand Cursor */
+#cursor.magic-cursor {
     position: fixed;
-    width: 25px;
-    height: 25px;
-    border-top: 5px solid #0f0;
-    border-left: 5px solid #0f0;
-    transform-origin: top;
-    transform: translate(-1px, 5px)rotate(15deg) scale(0);
-    transition: transform 0.1s;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    background: url("assets/magic-wand.png") no-repeat center;
+    background-size: contain;
     pointer-events: none;
-    animation: animate 5s linear infinite;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
-#cursor:before{
+body {
+    cursor: none;
+}
+* {
+    cursor: none !important;
+}
+a:hover, button:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+
+/* #cursor:before{
     content: '';
     position: absolute;
     width: 5px;
@@ -504,7 +517,7 @@ body:hover #cursor{
     100%{
         filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(360deg);
     }
-}
+} */
 
 /* background */
 .main{
