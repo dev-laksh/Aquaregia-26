@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("mouseenter", () => {
       navMode = "mouse";
       cards.forEach(c => c.classList.remove("active"));
+       card.classList.add("active");
     });
   });
 
