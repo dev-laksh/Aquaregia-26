@@ -26,7 +26,7 @@ body {
     color: var(--parchment);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none;
+    cursor: default;
 
 }
 
@@ -63,7 +63,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    /* background: rgba(5, 5, 8, 0.95); */
     position: fixed;
     width: 100%;
     top: 0;
@@ -129,11 +128,60 @@ body {
     text-shadow: none;
 }
 
+
+
+
+/* MAIN SKY BACKGROUND */
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+
+    background:
+        radial-gradient(circle at top,
+            #3c3f75 0%,
+            #23254a 35%,
+            #0b0d17 80%);
+
+    overflow: hidden;
+}
+
+/* STARS IMAGE LAYER */
+.twinkling {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+
+    background: url("assets/stars.png");
+    /* your stars image */
+    background-size: 600px;
+    background-repeat: repeat;
+
+    opacity: 0.45;
+    animation: starMove 120s linear infinite;
+}
+
+/* SLOW STAR MOVEMENT */
+@keyframes starMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 1000px 1000px;
+    }
+}
+
+
+
+
+
 /* --- Hero Section --- */
 .hero {
     width: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(assets/BG\ 2.png);
     background-position: center;
+    /* background-attachment: fixed; */
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -142,7 +190,6 @@ body {
     align-items: center;
     text-align: center;
     padding: 0 1rem;
-    /* background: radial-gradient(circle at center, rgba(30, 30, 50, 0.4) 0%, transparent 70%); */
 }
 
 .main-title {
@@ -210,10 +257,7 @@ body {
     /* height: 109vh; */
 }
 
-#about{
-     background-image: url(assets/BG\ 3.png); 
-        background-position: center -150px;
-}
+
 
 h2 {
     font-size: 2.5rem;
@@ -222,6 +266,7 @@ h2 {
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
+    margin-top: 50px;
 }
 
 
@@ -366,10 +411,7 @@ h2 {
 }
 
 /* --- NEW SECTION: What is Aquaregia (Alchemy Theme) --- */
-#alchemy {
-    background: linear-gradient(180deg, var(--bg-dark) 0%, #0a150f 50%, var(--bg-dark) 100%);
-    position: relative;
-}
+
 
 .alchemy-container {
     max-width: 900px;
@@ -632,16 +674,7 @@ footer {
     }
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease-out;
-}
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
@@ -667,34 +700,7 @@ footer {
     }
 }
 
-/* cursor */
-#cursor {
-    position: fixed;
-    width: 25px;
-    height: 25px;
-    border-top: 5px solid #0f0;
-    border-left: 5px solid #0f0;
-    transform-origin: top;
-    transform: translate(-1px, 5px)rotate(15deg) scale(0);
-    transition: transform 0.1s;
-    pointer-events: none;
-    animation: animate 5s linear infinite;
-}
 
-#cursor:before {
-    content: '';
-    position: absolute;
-    width: 5px;
-    height: 40px;
-    background: #0f0;
-    transform-origin: top;
-    transform: rotate(315deg);
-    left: -2.5px
-}
-
-body:hover #cursor {
-    transform: translate(-1px, 5px)rotate(15deg) scale(1);
-}
 
 @keyframes animate {
     0% {
@@ -717,4 +723,235 @@ body:hover #cursor {
     z-index: 10;
     /* snow on top */
     pointer-events: none;
+}
+
+
+
+
+
+/* Prophecy section */
+#about {
+    position: relative;
+    padding-bottom: 140px;
+    z-index: 3;
+}
+
+/* Skyline */
+.prophecy-skyline {
+    position: absolute;
+    bottom: -80px;
+    /* overlap */
+    left: 0;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    z-index: 999;
+    /* FORCE on top */
+}
+
+/* Image */
+.prophecy-skyline .city {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.15);
+    display: block;
+}
+
+/* NEXT SECTION (Alchemy) */
+#alchemy {
+    position: relative;
+    z-index: 1;
+    /* BELOW skyline */
+}
+
+
+
+/* FIRST SECTION (Hero / top section) */
+.hero{
+    position: relative;
+}
+
+/* Fade out bottom of first section */
+.hero::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:150px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(11,13,23,0),
+        rgba(11,13,23,0.4),
+        rgba(11,13,23,0.8),
+        rgba(11,13,23,1)
+    );
+
+    z-index:5;
+    pointer-events:none;
+}
+
+/* SECOND SECTION */
+#about{
+    position: relative;
+}
+
+/* Fade in top of second section */
+#about::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:150px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(11,13,23,1),
+        rgba(11,13,23,0.8),
+        rgba(11,13,23,0.4),
+        transparent
+    );
+
+    z-index:5;
+    pointer-events:none;
+}
+
+
+
+
+/* SECTION 2 (Prophecy) */
+#about{
+    position: relative;
+}
+
+/* STRONG fade OUT */
+#about::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:200px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(11,13,23,0),
+        rgba(11,13,23,0.5),
+        rgba(11,13,23,0.9),
+        rgba(11,13,23,1)
+    );
+
+    z-index:9;
+    pointer-events:none;
+}
+
+
+/* SECTION 3 (Alchemy) */
+#alchemy{
+    position: relative;
+}
+
+/* STRONG fade IN */
+#alchemy::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:220px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(11,13,23,1),
+        rgba(11,13,23,0.9),
+        rgba(11,13,23,0.5),
+        transparent
+    );
+
+    z-index:9;
+    pointer-events:none;
+}
+
+
+
+/* Alchemy section */
+#alchemy {
+    position: relative;
+    padding-bottom: 140px;
+    z-index: 2;
+}
+
+/* Skyline */
+.section-skyline {
+    position: absolute;
+    bottom: -80px;
+    /* overlap */
+    left: 0;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    z-index: 999;
+    /* FORCE on top */
+}
+
+/* Image */
+.section-skyline .city {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.15);
+    display: block;
+}
+
+
+
+/* fade OUT bottom of section 3 */
+.blend-bottom{
+    position: relative;
+}
+
+.blend-bottom::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:200px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(11,13,23,0),
+        rgba(11,13,23,0.4),
+        rgba(11,13,23,0.7),
+        #0b0d17
+    );
+
+    pointer-events:none;
+}
+
+/* fade IN top of section 4 */
+.blend-top{
+    position: relative;
+}
+
+.blend-top::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:2000px;
+
+    background:linear-gradient(
+        to top,
+        rgba(11,13,23,0),
+        rgba(11,13,23,0.4),
+        rgba(11,13,23,0.7),
+        #0b0d17
+    );
+
+    pointer-events:none;
 }

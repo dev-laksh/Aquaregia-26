@@ -1,15 +1,3 @@
-// cursor
-let cursor = document.querySelector('#cursor');
-let body= document.querySelector('body');
-document.addEventListener('mousemove', (e) => {
-body.style.backgroundPositionX = e.pageX/-4 + 'px';
-body.style.backgroundPositionY = e.pageY/-4 + 'px';
-cursor.style.top = e.pageY + 'px';
-cursor.style.left = e.pageX + 'px';            
-})
-
-
-
 // background
 const canvas = document.getElementById("snow");
 const ctx = canvas.getContext("2d");
@@ -71,22 +59,4 @@ window.addEventListener("resize",()=>{
   canvas.height = window.innerHeight;
 });
 
-    document.addEventListener('DOMContentLoaded', () => {
-            // --- Magic Scroll Reveal ---
-            const reveals = document.querySelectorAll('.reveal');
-
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                const elementVisible = 100;
-
-                reveals.forEach((reveal) => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveal.classList.add('active');
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Trigger once on load
-        });
+ 
