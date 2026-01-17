@@ -19,33 +19,54 @@ document.addEventListener("DOMContentLoaded", () => {
     "7 Octaves": ["Solo Singing", "Group Singing", "Antakshiri"],
     "Techyuvas": ["Coding", "Hackathon", "Graphics Designing","BGMI","Valorant"],
     "Ojas": ["Creative Captures", "Creative Reel", "Prop Based Photography","cinematic shot","Meme Holic"],
+    "Nrityam": [
+  "Solo Dance",
+  "Group Dance",
+  "Western Dance",
+  "Folk Dance"
+],
+
+"Miscellaneous": [
+  "Treasure Hunt",
+  "Tug of war",
+  "Relay Race",
+  "Futsal",
+  "Aqua Got Talent",
+]
+
   };
 
-  function setActiveCard(index) {
-    cards.forEach(card => card.classList.remove("active"));
-    if (navMode === "keys") {
-      cards[index].classList.add("active");
-    }
-    cards[index].scrollIntoView({ behavior: "smooth", inline: "center" });
-  }
+ function setActiveCard(index) { cards.forEach(card => card.classList.remove("active"));
+   if (navMode === "keys") {
+     cards[index].classList.add("active"); } 
+     cards[index].scrollIntoView({ behavior: "smooth", inline: "center" }); }
 
   function openModal(eventName) {
     modalTitle.textContent = eventName;
     modalGenres.innerHTML = "";
 
     eventGenres[eventName].forEach(genre => {
-      const card = document.createElement("div");
-      card.classList.add("genre-card");
-      card.textContent = genre;
-      modalGenres.appendChild(card);
-    });
+  const card = document.createElement("div");
+  card.classList.add("genre-card");
+  card.textContent = genre;
+
+  // 👉 ADD CLICK ACTION
+  card.addEventListener("click", () => {
+    const pageName = generatePageName(eventName, genre);
+    window.location.href = "events/" + pageName;
+  });
+
+  modalGenres.appendChild(card);
+});
+
 
     modal.style.display = "block";
   }
 
   nextBtn.addEventListener("click", () => {
     navMode = "keys";
-    currentIndex = (currentIndex + 1) % cards.length;
+   currentIndex = (currentIndex + 1) % cards.length;
+
     setActiveCard(currentIndex);
   });
 
@@ -59,11 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "ArrowRight") {
       navMode = "keys";
       currentIndex = (currentIndex + 1) % cards.length;
+
       setActiveCard(currentIndex);
       e.preventDefault();
     } else if (e.key === "ArrowLeft") {
       navMode = "keys";
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+     currentIndex = (currentIndex - 1 + cards.length) % cards.length;
       setActiveCard(currentIndex);
       e.preventDefault();
     } else if (e.key === "Escape" && modal.style.display === "block") {
@@ -97,3 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setActiveCard(currentIndex);
 });
+function generatePageName(eventName, genre) {
+  return (
+    eventName.toLowerCase().replace(/\s+/g, '') +
+    "-" +
+    genre.toLowerCase().replace(/\s+/g, '') +
+    ".html"
+  );
+}
