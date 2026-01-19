@@ -22,7 +22,7 @@ body {
     color: var(--parchment);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none;
+    /* cursor: none; */
     background-image: url("/assets/IMG-20260112-WA0008.jpg")
 }
 
@@ -434,7 +434,7 @@ body {
         }
 
         /* --- Footer --- */
-        footer {
+        .index-footer {
             padding: 3rem 1rem;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.2);
