@@ -11,15 +11,11 @@
     --font-body: 'MedievalSharp', cursive;
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
 
 body {
     /* background-color: var(--bg-dark); */
@@ -27,7 +23,6 @@ body {
     font-family: var(--font-body);
     overflow-x: hidden;
     cursor: default;
-
 }
 
 /* --- Pure CSS Magical Background (No Images) --- */
@@ -50,10 +45,7 @@ body {
     width: 2px;
     height: 2px;
     background: white;
-    box-shadow:
-        10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff,
-        50vw 90vh #fff, 60vw 20vh #fff, 70vw 60vh #fff, 80vw 40vh #fff,
-        90vw 10vh #fff, 95vw 85vh #fff, 5vw 45vh #fff, 15vw 75vh #fff;
+    box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff, 50vw 90vh #fff, 60vw 20vh #fff, 70vw 60vh #fff, 80vw 40vh #fff, 90vw 10vh #fff, 95vw 85vh #fff, 5vw 45vh #fff, 15vw 75vh #fff;
     opacity: 0.5;
 }
 
@@ -63,6 +55,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    background: transparent;
     position: fixed;
     width: 100%;
     top: 0;
@@ -86,6 +79,7 @@ body {
     list-style: none;
     display: flex;
     gap: 2rem;
+    margin-left: 200px;
 }
 
 .nav-links a {
@@ -117,18 +111,25 @@ body {
 }
 
 .btn-primary {
+    background: linear-gradient(180deg, #0b1020, #121b35);
+    color: #e6d8a8;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+    transition: 0.3s ease;
     border: 1px solid var(--gold);
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    margin-left: 200px;
 }
 
 .btn-primary:hover {
+    background: linear-gradient(180deg, #d4af37, #b8962e);
+    color: #0a0a15;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
     background: var(--gold);
     color: var(--bg-dark);
     text-shadow: none;
 }
-
-
 
 
 /* MAIN SKY BACKGROUND */
@@ -136,13 +137,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: -5;
-
-    background:
-        radial-gradient(circle at top,
-            #3c3f75 0%,
-            #23254a 35%,
-            #0b0d17 80%);
-
+    background: radial-gradient(circle at top, #3c3f75 0%, #23254a 35%, #0b0d17 80%);
     overflow: hidden;
 }
 
@@ -151,12 +146,10 @@ body {
     position: fixed;
     inset: 0;
     z-index: -4;
-
     background: url("assets/stars.png");
     /* your stars image */
     background-size: 600px;
     background-repeat: repeat;
-
     opacity: 0.45;
     animation: starMove 120s linear infinite;
 }
@@ -172,24 +165,45 @@ body {
     }
 }
 
-
-
-
-
 /* --- Hero Section --- */
 .hero {
-    width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(assets/BG\ 2.png);
-    background-position: center;
-    /* background-attachment: fixed; */
-    background-size: cover;
+    /* width: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(assets/BG\ 2.png); background-position: center; /* background-attachment: fixed; background-size: cover; */
+    position: relative;
     height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 1rem;
+}
+
+/* video */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* dark overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+/* keep content above */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-top: 100px;
 }
 
 .main-title {
@@ -257,8 +271,6 @@ body {
     /* height: 109vh; */
 }
 
-
-
 h2 {
     font-size: 2.5rem;
     color: var(--gold);
@@ -269,11 +281,6 @@ h2 {
     margin-top: 50px;
 }
 
-
-
-
-
-
 /* --- About: The Prophecy (Parchment Style) --- */
 .parchment-bg {
     background-color: var(--parchment);
@@ -283,8 +290,7 @@ h2 {
     max-width: 800px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.8) inset, 0 0 20px var(--gold-glow);
     position: relative;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%,
-            5% 50%
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 5% 50%
             /* A slight tear in the paper effect could go here, keeping simple for now */
         );
     border: 10px solid transparent;
@@ -411,8 +417,6 @@ h2 {
 }
 
 /* --- NEW SECTION: What is Aquaregia (Alchemy Theme) --- */
-
-
 .alchemy-container {
     max-width: 900px;
     display: flex;
@@ -454,10 +458,6 @@ h2 {
     left: 0;
     pointer-events: none;
 }
-
-
-
-
 
 .bubble {
     position: absolute;
@@ -546,7 +546,6 @@ h2 {
     animation-duration: 10s;
     animation-delay: 4s;
 }
-
 
 @keyframes rise {
     0% {
@@ -674,8 +673,6 @@ footer {
     }
 }
 
-
-
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .main-title {
@@ -700,8 +697,6 @@ footer {
     }
 }
 
-
-
 @keyframes animate {
     0% {
         filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(0deg);
@@ -713,7 +708,6 @@ footer {
 }
 
 /* background */
-
 #snow {
     position: fixed;
     top: 0;
@@ -724,10 +718,6 @@ footer {
     /* snow on top */
     pointer-events: none;
 }
-
-
-
-
 
 /* Prophecy section */
 #about {
@@ -765,117 +755,77 @@ footer {
     /* BELOW skyline */
 }
 
-
-
 /* FIRST SECTION (Hero / top section) */
-.hero{
+.hero {
     position: relative;
 }
 
 /* Fade out bottom of first section */
-.hero::after{
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:150px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(11,13,23,0),
-        rgba(11,13,23,0.4),
-        rgba(11,13,23,0.8),
-        rgba(11,13,23,1)
-    );
-
-    z-index:5;
-    pointer-events:none;
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.4), rgba(11, 13, 23, 0.8), rgba(11, 13, 23, 1));
+    z-index: 5;
+    pointer-events: none;
 }
 
 /* SECOND SECTION */
-#about{
+#about {
     position: relative;
 }
 
 /* Fade in top of second section */
-#about::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:150px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(11,13,23,1),
-        rgba(11,13,23,0.8),
-        rgba(11,13,23,0.4),
-        transparent
-    );
-
-    z-index:5;
-    pointer-events:none;
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 1), rgba(11, 13, 23, 0.8), rgba(11, 13, 23, 0.4), transparent);
+    z-index: 5;
+    pointer-events: none;
 }
 
-
-
-
 /* SECTION 2 (Prophecy) */
-#about{
+#about {
     position: relative;
 }
 
 /* STRONG fade OUT */
-#about::after{
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:200px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(11,13,23,0),
-        rgba(11,13,23,0.5),
-        rgba(11,13,23,0.9),
-        rgba(11,13,23,1)
-    );
-
-    z-index:9;
-    pointer-events:none;
+#about::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.5), rgba(11, 13, 23, 0.9), rgba(11, 13, 23, 1));
+    z-index: 9;
+    pointer-events: none;
 }
 
-
 /* SECTION 3 (Alchemy) */
-#alchemy{
+#alchemy {
     position: relative;
 }
 
 /* STRONG fade IN */
-#alchemy::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:220px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(11,13,23,1),
-        rgba(11,13,23,0.9),
-        rgba(11,13,23,0.5),
-        transparent
-    );
-
-    z-index:9;
-    pointer-events:none;
+#alchemy::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 1), rgba(11, 13, 23, 0.9), rgba(11, 13, 23, 0.5), transparent);
+    z-index: 9;
+    pointer-events: none;
 }
-
-
 
 /* Alchemy section */
 #alchemy {
@@ -906,52 +856,156 @@ footer {
     display: block;
 }
 
-
-
 /* fade OUT bottom of section 3 */
-.blend-bottom{
+.blend-bottom {
     position: relative;
 }
 
-.blend-bottom::after{
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:200px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(11,13,23,0),
-        rgba(11,13,23,0.4),
-        rgba(11,13,23,0.7),
-        #0b0d17
-    );
-
-    pointer-events:none;
+.blend-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.4), rgba(11, 13, 23, 0.7), #0b0d17);
+    pointer-events: none;
 }
 
 /* fade IN top of section 4 */
-.blend-top{
+.blend-top {
     position: relative;
 }
 
-.blend-top::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:2000px;
+.blend-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2000px;
+    background: linear-gradient(to top, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.4), rgba(11, 13, 23, 0.7), #0b0d17);
+    pointer-events: none;
+}
 
-    background:linear-gradient(
-        to top,
-        rgba(11,13,23,0),
-        rgba(11,13,23,0.4),
-        rgba(11,13,23,0.7),
-        #0b0d17
-    );
+/* Golden Border around Hero Content */
+.golden-frame {
+    position: relative;
+    padding: 50px 100px 60px 100px;
+    border-radius: 50px;
+    /* golden border */
+    border: 1.5px solid #d4af37;
+    /* glow */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+}
 
-    pointer-events:none;
+/* Curtain Opening */
+/* intro */
+.page-intro {
+    position: absolute;
+    /* NOT fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+}
+
+.intro-left,
+.intro-right {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to bottom, #0a0a15, #020208);
+}
+
+/* golden edge */
+.intro-left {
+    border-right: 3px solid #d4af37;
+}
+
+.intro-right {
+    border-left: 3px solid #d4af37;
+}
+
+/* animation */
+.page-intro {
+    animation: introHide 2.2s ease forwards;
+    animation-delay: 1s;
+}
+
+.intro-left {
+    animation: leftOpen 2s ease forwards;
+    animation-delay: 1s;
+}
+
+.intro-right {
+    animation: rightOpen 2s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes leftOpen {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes rightOpen {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes introHide {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+
+
+/* Container to center the button
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+/* Button styles */
+.btn {
+    background: linear-gradient(180deg, #0b1020, #121b35);
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(14, 14, 26);
+    color: #e6d8a8;
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+    text-decoration: none;
+
+    /* reflection */
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+}
+
+.btn:active {
+    transform: scale(0.92);
+}
+
+.btn:hover {
+    background: linear-gradient(180deg, #d4af37, #b8962e);
+    background: linear-gradient(270deg,
+            rgba(2, 29, 78, 0.681) 0%,
+            rgba(31, 215, 232, 0.873) 60%);
+    color: rgb(4, 4, 38);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
 }
