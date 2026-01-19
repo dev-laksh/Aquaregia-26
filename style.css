@@ -22,7 +22,7 @@ body {
     color: var(--parchment);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none;
+    /* cursor: none; */
     background-image: url("/assets/IMG-20260112-WA0008.jpg")
 }
 
@@ -434,7 +434,7 @@ body {
         }
 
         /* --- Footer --- */
-        footer {
+        .index-footer {
             padding: 3rem 1rem;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.2);
@@ -469,20 +469,33 @@ body {
         }
 
 /* cursor */
-#cursor{
+/* Magic Wand Cursor */
+#cursor.magic-cursor {
     position: fixed;
-    width: 25px;
-    height: 25px;
-    border-top: 5px solid #0f0;
-    border-left: 5px solid #0f0;
-    transform-origin: top;
-    transform: translate(-1px, 5px)rotate(15deg) scale(0);
-    transition: transform 0.1s;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: url("assets/magic-wand.png") no-repeat center;
+    background-size: contain;
     pointer-events: none;
-    animation: animate 5s linear infinite;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
-#cursor:before{
+body {
+    cursor: none;
+}
+* {
+    cursor: none !important;
+}
+a:hover, button:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+
+/* #cursor:before{
     content: '';
     position: absolute;
     width: 5px;
@@ -504,7 +517,7 @@ body:hover #cursor{
     100%{
         filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(360deg);
     }
-}
+} */
 
 /* background */
 .main{
@@ -523,4 +536,37 @@ body:hover #cursor{
   height:100%;
   z-index:10;   /* snow on top */
   pointer-events:none;
+}
+/* The magic trail particles */
+/* Enhanced Magic Spark */
+.magic-spark {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white; /* Bright white core */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    
+    /* Multiple layers of glow for a 'Bloom' effect */
+    box-shadow: 
+        0 0 10px #fff, 
+        0 0 20px #ffd700, 
+        0 0 40px #ffcc00, 
+        0 0 60px #ff8800;
+        
+    mix-blend-mode: screen; /* Makes it look like actual light */
+    animation: disappear 1s ease-out forwards;
+}
+
+@keyframes disappear {
+    0% {
+        transform: scale(1.5) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        /* This makes the spark drift slightly as it fades */
+        transform: scale(0) translate(var(--dx), var(--dy));
+        opacity: 0;
+    }
 }
