@@ -474,8 +474,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     background: url("assets/magic-wand.png") no-repeat center;
     background-size: contain;
     pointer-events: none;
@@ -536,4 +536,37 @@ body:hover #cursor{
   height:100%;
   z-index:10;   /* snow on top */
   pointer-events:none;
+}
+/* The magic trail particles */
+/* Enhanced Magic Spark */
+.magic-spark {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white; /* Bright white core */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    
+    /* Multiple layers of glow for a 'Bloom' effect */
+    box-shadow: 
+        0 0 10px #fff, 
+        0 0 20px #ffd700, 
+        0 0 40px #ffcc00, 
+        0 0 60px #ff8800;
+        
+    mix-blend-mode: screen; /* Makes it look like actual light */
+    animation: disappear 1s ease-out forwards;
+}
+
+@keyframes disappear {
+    0% {
+        transform: scale(1.5) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        /* This makes the spark drift slightly as it fades */
+        transform: scale(0) translate(var(--dx), var(--dy));
+        opacity: 0;
+    }
 }
