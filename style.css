@@ -22,551 +22,990 @@ body {
     color: var(--parchment);
     font-family: var(--font-body);
     overflow-x: hidden;
-    /* cursor: none; */
-    background-image: url("/assets/IMG-20260112-WA0008.jpg")
+    cursor: default;
 }
 
 /* --- Pure CSS Magical Background (No Images) --- */
-        .stars {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: #000;
-            z-index: -2;
-        }
-        
-        /* Creating stars using box-shadows for performance/no-asset dependency */
-        .stars::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0;
-            width: 2px; height: 2px;
-            background: white;
-            box-shadow: 
-                10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff, 
-                50vw 90vh #fff, 60vw 20vh #fff, 70vw 60vh #fff, 80vw 40vh #fff, 
-                90vw 10vh #fff, 95vw 85vh #fff, 5vw 45vh #fff, 15vw 75vh #fff;
-            opacity: 0.5;
-        }
-
-        /* --- Navbar --- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: rgba(5, 5, 8, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(5px);
-        }
-
-        .logo { font-size: 1.5rem; font-weight: bold; font-family: var(--font-heading); color: #fff; }
-        .gold-text { color: var(--gold); }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--parchment);
-            font-size: 1.1rem;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--gold);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
-
-        .btn-primary {
-            border: 1px solid var(--gold);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
-        
-        .btn-primary:hover {
-            background: var(--gold);
-            color: var(--bg-dark);
-            text-shadow: none;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 1rem;
-            background: radial-gradient(circle at center, rgba(30, 30, 50, 0.4) 0%, transparent 70%);
-        }
-
-        .main-title {
-            font-size: 4rem;
-            margin: 0.5rem 0;
-            color: var(--gold);
-            text-shadow: 0 0 20px var(--gold-glow);
-            font-family: var(--font-heading);
-            letter-spacing: 5px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .intro-text { font-size: 1.2rem; opacity: 0.8; letter-spacing: 2px; text-transform: uppercase;}
-        .sub-title { font-size: 1.5rem; margin-bottom: 2rem; font-style: italic; color: #aaa; }
-
-        .date {
-            font-size: 1.2rem;
-            border-top: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            padding: 10px 20px;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:hover {
-            background: var(--gold);
-            color: var(--bg-dark);
-            box-shadow: 0 0 30px var(--gold-glow);
-        }
-
-        /* --- Section Defaults --- */
-        .section {
-            padding: 6rem 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: var(--gold);
-            font-family: var(--font-heading);
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        /* --- About: The Prophecy (Parchment Style) --- */
-        .parchment-bg {
-            background-color: var(--parchment);
-            color: #3e2723; /* Dark brown ink */
-            padding: 4rem;
-            max-width: 800px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.8) inset, 0 0 20px var(--gold-glow);
-            position: relative;
-            clip-path: polygon(
-                0% 0%, 100% 0%, 100% 100%, 0% 100%, 
-                5% 50% /* A slight tear in the paper effect could go here, keeping simple for now */
-            );
-            border: 10px solid transparent;
-            border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H20V20H0V0Z' fill='%23d4af37'/%3E%3C/svg%3E") 30 stretch;
-        }
-
-        .parchment-bg h2 { 
-            color: #3e2723; 
-            border-bottom: 2px solid #3e2723; 
-            padding-bottom: 10px;
-        }
-
-        /* --- Council / Committee Styles (Updated for Cards) --- */
-        .council-block {
-            margin-bottom: 3rem;
-            width: 100%;
-        }
-
-        .council-block h3 {
-            font-family: var(--font-heading);
-            color: #5d4037;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px dashed #5d4037;
-            display: inline-block;
-        }
-
-        .council-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2.5rem;
-        }
-
-        .member-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 180px;
-            position: relative;
-        }
-
-        .photo-frame {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid #5d4037;
-            background: #d7ccc8; /* Placeholder background */
-            margin-bottom: 1rem;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(62, 39, 35, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* Hover Effect: Magical Levitation */
-        .member-card:hover .photo-frame {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(62, 39, 35, 0.4);
-            border-color: var(--gryffindor);
-        }
-
-        .photo-placeholder {
-            font-size: 0.9rem;
-            color: #5d4037;
-            opacity: 0.6;
-            font-weight: bold;
-        }
-
-        .member-name {
-            font-family: var(--font-heading);
-            font-weight: bold;
-            color: #3e2723;
-            font-size: 1rem;
-            line-height: 1.2;
-            margin-bottom: 0.3rem;
-        }
-
-        .member-role {
-            font-size: 0.8rem;
-            color: #795548;
-            font-style: italic;
-        }
-
-        /* Special Styling for Chief Patrons */
-        .patron-card {
-            width: 220px;
-        }
-        
-        .patron-card .photo-frame {
-            width: 150px;
-            height: 150px;
-            border: 4px solid var(--gold); /* Gold border for higher rank */
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        .patron-card:hover .photo-frame {
-             border-color: var(--gold);
-             box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
-        }
-
-        .patron-card .member-name {
-            font-size: 1.3rem;
-        }
-
-        @media (max-width: 768px) {
-            .council-grid { gap: 1.5rem; }
-            .member-card { width: 140px; }
-            .photo-frame { width: 100px; height: 100px; }
-        }
-
-        /* --- NEW SECTION: What is Aquaregia (Alchemy Theme) --- */
-        #alchemy {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #0a150f 50%, var(--bg-dark) 100%);
-            position: relative;
-        }
-
-        .alchemy-container {
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .alchemy-text {
-            font-size: 1.2rem;
-            border-left: 3px solid var(--gold);
-            padding-left: 20px;
-            text-align: left;
-        }
-
-        .chemical-formula {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: var(--acid-green);
-            text-shadow: 0 0 15px var(--acid-green);
-            margin: 1rem 0;
-            letter-spacing: 5px;
-        }
-
-        .definition {
-            font-style: italic;
-            opacity: 0.8;
-            margin-bottom: 1rem;
-        }
-
-        /* Animated Bubbles for Alchemy Section */
-        .bubbles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            top: 0; left: 0;
-            pointer-events: none;
-        }
-        .bubble {
-            position: absolute;
-            bottom: -100px;
-            background: radial-gradient(circle at 30% 30%, rgba(57, 255, 20, 0.4), transparent);
-            border-radius: 50%;
-            border: 1px solid rgba(57, 255, 20, 0.3);
-            animation: rise 10s infinite ease-in;
-        }
-        .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; }
-        .bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; animation-delay: 1s; }
-        .bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 7s; animation-delay: 2s; }
-        .bubble:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 11s; animation-delay: 0s; }
-        .bubble:nth-child(5) { width: 35px; height: 35px; left: 55%; animation-duration: 6s; animation-delay: 1s; }
-        .bubble:nth-child(6) { width: 45px; height: 45px; left: 65%; animation-duration: 8s; animation-delay: 3s; }
-        .bubble:nth-child(7) { width: 90px; height: 90px; left: 70%; animation-duration: 12s; animation-delay: 2s; }
-        .bubble:nth-child(8) { width: 25px; height: 25px; left: 80%; animation-duration: 6s; animation-delay: 2s; }
-        .bubble:nth-child(9) { width: 15px; height: 15px; left: 70%; animation-duration: 5s; animation-delay: 1s; }
-        .bubble:nth-child(10) { width: 90px; height: 90px; left: 25%; animation-duration: 10s; animation-delay: 4s; }
-
-
-        @keyframes rise {
-            0% { bottom: -100px; transform: translateX(0); }
-            50% { transform: translateX(50px); }
-            100% { bottom: 1080px; transform: translateX(-50px); opacity: 0; }
-        }
-
-        /* --- Events Grid --- */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: rgba(20, 20, 20, 0.6);
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            transition: 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* House Colors Borders & Glows */
-        .house-gryffindor { border-top: 3px solid var(--gryffindor); }
-        .house-slytherin { border-top: 3px solid var(--slytherin); }
-        .house-ravenclaw { border-top: 3px solid var(--ravenclaw); }
-        .house-hufflepuff { border-top: 3px solid var(--hufflepuff); }
-
-        .card:hover { transform: translateY(-10px); background: rgba(30, 30, 30, 0.8); }
-        .house-gryffindor:hover { box-shadow: 0 10px 20px rgba(116, 0, 1, 0.3); }
-        .house-slytherin:hover { box-shadow: 0 10px 20px rgba(26, 71, 42, 0.3); }
-        .house-ravenclaw:hover { box-shadow: 0 10px 20px rgba(14, 26, 64, 0.3); }
-        .house-hufflepuff:hover { box-shadow: 0 10px 20px rgba(236, 185, 57, 0.3); }
-
-        .card h3 { font-family: var(--font-heading); margin-bottom: 0.5rem; }
-
-        /* --- Realm Badges (New for Events Summary) --- */
-        .realm-badge {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            margin: 0.5rem;
-            border: 2px solid #3e2723;
-            border-radius: 50px;
-            font-family: var(--font-heading);
-            font-weight: bold;
-            color: #3e2723;
-            background: rgba(62, 39, 35, 0.05);
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .realm-badge:hover {
-            background: #3e2723;
-            color: var(--parchment);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(62, 39, 35, 0.3);
-        }
-
-        /* --- Footer --- */
-        .index-footer {
-            padding: 3rem 1rem;
-            text-align: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            background: #000;
-        }
-
-        /* --- Animation Utilities --- */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .main-title { font-size: 2.5rem; }
-            .chemical-formula { font-size: 2rem; }
-            .nav-links { display: none; } 
-            .parchment-bg { padding: 2rem; margin: 1rem; }
-            .alchemy-text { margin: 1rem; }
-        }
-
-/* cursor */
-/* Magic Wand Cursor */
-#cursor.magic-cursor {
+.stars {
     position: fixed;
     top: 0;
     left: 0;
-    width: 50px;
-    height: 50px;
-    background: url("assets/magic-wand.png") no-repeat center;
-    background-size: contain;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: -2;
 }
 
-body {
-    cursor: none;
-}
-* {
-    cursor: none !important;
-}
-a:hover, button:hover {
-    transform: scale(1.05);
-    transition: 0.2s;
+/* Creating stars using box-shadows for performance/no-asset dependency */
+.stars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff, 50vw 90vh #fff, 60vw 20vh #fff, 70vw 60vh #fff, 80vw 40vh #fff, 90vw 10vh #fff, 95vw 85vh #fff, 5vw 45vh #fff, 15vw 75vh #fff;
+    opacity: 0.5;
 }
 
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(5px);
+}
 
-/* #cursor:before{
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    color: #fff;
+}
+
+.gold-text {
+    color: var(--gold);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-left: 200px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--parchment);
+    font-size: 1.1rem;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
     content: '';
     position: absolute;
-    width: 5px;
-    height: 40px;
-    background: #0f0;
-    transform-origin: top;
-    transform: rotate(315deg);
-    left: -2.5px
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s;
 }
 
-body:hover #cursor{
-    transform: translate(-1px, 5px)rotate(15deg) scale(1);
-}
-
-@keyframes animate{
-    0%{
-        filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(0deg);
-    }
-    100%{
-        filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(360deg);
-    }
-} */
-
-/* background */
-.main{
+.nav-links a:hover::after {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(BG\ 2.png);
-    background-position: center;
-    background-size: cover;
-    height: 109vh;
 }
 
-#snow{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:10;   /* snow on top */
-  pointer-events:none;
-}
-/* The magic trail particles */
-/* Enhanced Magic Spark */
-.magic-spark {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: white; /* Bright white core */
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    
-    /* Multiple layers of glow for a 'Bloom' effect */
-    box-shadow: 
-        0 0 10px #fff, 
-        0 0 20px #ffd700, 
-        0 0 40px #ffcc00, 
-        0 0 60px #ff8800;
-        
-    mix-blend-mode: screen; /* Makes it look like actual light */
-    animation: disappear 1s ease-out forwards;
+.nav-links a:hover {
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold);
 }
 
-@keyframes disappear {
-    0% {
-        transform: scale(1.5) translate(0, 0);
-        opacity: 1;
+.btn-primary {
+    background: linear-gradient(180deg, #0b1020, #121b35);
+    color: #e6d8a8;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+    transition: 0.3s ease;
+    border: 1px solid var(--gold);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-left: 200px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(180deg, #d4af37, #b8962e);
+    color: #0a0a15;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+    background: var(--gold);
+    color: var(--bg-dark);
+    text-shadow: none;
+}
+
+
+/* MAIN SKY BACKGROUND */
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    background: radial-gradient(circle at top, #3c3f75 0%, #23254a 35%, #0b0d17 80%);
+    overflow: hidden;
+}
+
+/* STARS IMAGE LAYER */
+.twinkling {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    background: url("assets/stars.png");
+    /* your stars image */
+    background-size: 600px;
+    background-repeat: repeat;
+    opacity: 0.45;
+    animation: starMove 120s linear infinite;
+}
+
+/* SLOW STAR MOVEMENT */
+@keyframes starMove {
+    from {
+        background-position: 0 0;
     }
+
+    to {
+        background-position: 1000px 1000px;
+    }
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* width: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(assets/BG\ 2.png); background-position: center; /* background-attachment: fixed; background-size: cover; */
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* video */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* dark overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+/* keep content above */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-top: 100px;
+}
+
+.main-title {
+    font-size: 4rem;
+    margin: 0.5rem 0;
+    color: var(--gold);
+    text-shadow: 0 0 20px var(--gold-glow);
+    font-family: var(--font-heading);
+    letter-spacing: 5px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.sub-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: #aaa;
+}
+
+.date {
+    font-size: 1.2rem;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 10px 20px;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px var(--gold-glow);
+}
+
+/* --- Section Defaults --- */
+.section {
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    /* height: 109vh; */
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+/* --- About: The Prophecy (Parchment Style) --- */
+.parchment-bg {
+    background-color: var(--parchment);
+    color: #3e2723;
+    /* Dark brown ink */
+    padding: 4rem;
+    max-width: 800px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8) inset, 0 0 20px var(--gold-glow);
+    position: relative;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 5% 50%
+            /* A slight tear in the paper effect could go here, keeping simple for now */
+        );
+    border: 10px solid transparent;
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H20V20H0V0Z' fill='%23d4af37'/%3E%3C/svg%3E") 30 stretch;
+}
+
+.parchment-bg h2 {
+    color: #3e2723;
+    border-bottom: 2px solid #3e2723;
+    padding-bottom: 10px;
+}
+
+/* --- Council / Committee Styles (Updated for Cards) --- */
+.council-block {
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.council-block h3 {
+    font-family: var(--font-heading);
+    color: #5d4037;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed #5d4037;
+    display: inline-block;
+}
+
+.council-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 180px;
+    position: relative;
+}
+
+.photo-frame {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #5d4037;
+    background: #d7ccc8;
+    /* Placeholder background */
+    margin-bottom: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(62, 39, 35, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect: Magical Levitation */
+.member-card:hover .photo-frame {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(62, 39, 35, 0.4);
+    border-color: var(--gryffindor);
+}
+
+.photo-placeholder {
+    font-size: 0.9rem;
+    color: #5d4037;
+    opacity: 0.6;
+    font-weight: bold;
+}
+
+.member-name {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    color: #3e2723;
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+}
+
+.member-role {
+    font-size: 0.8rem;
+    color: #795548;
+    font-style: italic;
+}
+
+/* Special Styling for Chief Patrons */
+.patron-card {
+    width: 220px;
+}
+
+.patron-card .photo-frame {
+    width: 150px;
+    height: 150px;
+    border: 4px solid var(--gold);
+    /* Gold border for higher rank */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.patron-card:hover .photo-frame {
+    border-color: var(--gold);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+}
+
+.patron-card .member-name {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .council-grid {
+        gap: 1.5rem;
+    }
+
+    .member-card {
+        width: 140px;
+    }
+
+    .photo-frame {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* --- NEW SECTION: What is Aquaregia (Alchemy Theme) --- */
+.alchemy-container {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.alchemy-text {
+    font-size: 1.2rem;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+    text-align: left;
+}
+
+.chemical-formula {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: var(--acid-green);
+    text-shadow: 0 0 15px var(--acid-green);
+    margin: 1rem 0;
+    letter-spacing: 5px;
+}
+
+.definition {
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+/* Animated Bubbles for Alchemy Section */
+.bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background: radial-gradient(circle at 30% 30%, rgba(57, 255, 20, 0.4), transparent);
+    border-radius: 50%;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    animation: rise 10s infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    left: 10%;
+    animation-duration: 8s;
+}
+
+.bubble:nth-child(2) {
+    width: 20px;
+    height: 20px;
+    left: 20%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    left: 35%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(4) {
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    animation-duration: 11s;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(5) {
+    width: 35px;
+    height: 35px;
+    left: 55%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(6) {
+    width: 45px;
+    height: 45px;
+    left: 65%;
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(7) {
+    width: 90px;
+    height: 90px;
+    left: 70%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(8) {
+    width: 25px;
+    height: 25px;
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(9) {
+    width: 15px;
+    height: 15px;
+    left: 70%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(10) {
+    width: 90px;
+    height: 90px;
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -100px;
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(50px);
+    }
+
     100% {
-        /* This makes the spark drift slightly as it fades */
-        transform: scale(0) translate(var(--dx), var(--dy));
+        bottom: 1080px;
+        transform: translateX(-50px);
         opacity: 0;
     }
+}
+
+/* --- Events Grid --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 3rem;
+}
+
+.card {
+    background: rgba(20, 20, 20, 0.6);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* House Colors Borders & Glows */
+.house-gryffindor {
+    border-top: 3px solid var(--gryffindor);
+}
+
+.house-slytherin {
+    border-top: 3px solid var(--slytherin);
+}
+
+.house-ravenclaw {
+    border-top: 3px solid var(--ravenclaw);
+}
+
+.house-hufflepuff {
+    border-top: 3px solid var(--hufflepuff);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(30, 30, 30, 0.8);
+}
+
+.house-gryffindor:hover {
+    box-shadow: 0 10px 20px rgba(116, 0, 1, 0.3);
+}
+
+.house-slytherin:hover {
+    box-shadow: 0 10px 20px rgba(26, 71, 42, 0.3);
+}
+
+.house-ravenclaw:hover {
+    box-shadow: 0 10px 20px rgba(14, 26, 64, 0.3);
+}
+
+.house-hufflepuff:hover {
+    box-shadow: 0 10px 20px rgba(236, 185, 57, 0.3);
+}
+
+.card h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+}
+
+/* --- Realm Badges (New for Events Summary) --- */
+.realm-badge {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    border: 2px solid #3e2723;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    color: #3e2723;
+    background: rgba(62, 39, 35, 0.05);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.realm-badge:hover {
+    background: #3e2723;
+    color: var(--parchment);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(62, 39, 35, 0.3);
+}
+
+/* --- Footer --- */
+.index-footer {
+    padding: 3rem 1rem;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    background: #000;
+}
+
+/* --- Animation Utilities --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .chemical-formula {
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .parchment-bg {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .alchemy-text {
+        margin: 1rem;
+    }
+}
+
+@keyframes animate {
+    0% {
+        filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(0deg);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(360deg);
+    }
+}
+
+/* background */
+#snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    /* snow on top */
+    pointer-events: none;
+}
+
+/* Prophecy section */
+#about {
+    position: relative;
+    padding-bottom: 140px;
+    z-index: 3;
+}
+
+/* Skyline */
+.prophecy-skyline {
+    position: absolute;
+    bottom: -80px;
+    /* overlap */
+    left: 0;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    z-index: 999;
+    /* FORCE on top */
+}
+
+/* Image */
+.prophecy-skyline .city {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.15);
+    display: block;
+}
+
+/* NEXT SECTION (Alchemy) */
+#alchemy {
+    position: relative;
+    z-index: 1;
+    /* BELOW skyline */
+}
+
+/* FIRST SECTION (Hero / top section) */
+.hero {
+    position: relative;
+}
+
+/* Fade out bottom of first section */
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.4), rgba(11, 13, 23, 0.8), rgba(11, 13, 23, 1));
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* SECOND SECTION */
+#about {
+    position: relative;
+}
+
+/* Fade in top of second section */
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 1), rgba(11, 13, 23, 0.8), rgba(11, 13, 23, 0.4), transparent);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* SECTION 2 (Prophecy) */
+#about {
+    position: relative;
+}
+
+/* STRONG fade OUT */
+#about::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.5), rgba(11, 13, 23, 0.9), rgba(11, 13, 23, 1));
+    z-index: 9;
+    pointer-events: none;
+}
+
+/* SECTION 3 (Alchemy) */
+#alchemy {
+    position: relative;
+}
+
+/* STRONG fade IN */
+#alchemy::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 1), rgba(11, 13, 23, 0.9), rgba(11, 13, 23, 0.5), transparent);
+    z-index: 9;
+    pointer-events: none;
+}
+
+/* Alchemy section */
+#alchemy {
+    position: relative;
+    padding-bottom: 140px;
+    z-index: 2;
+}
+
+/* Skyline */
+.section-skyline {
+    position: absolute;
+    bottom: -80px;
+    /* overlap */
+    left: 0;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    z-index: 999;
+    /* FORCE on top */
+}
+
+/* Image */
+.section-skyline .city {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.15);
+    display: block;
+}
+
+/* fade OUT bottom of section 3 */
+.blend-bottom {
+    position: relative;
+}
+
+.blend-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.4), rgba(11, 13, 23, 0.7), #0b0d17);
+    pointer-events: none;
+}
+
+/* fade IN top of section 4 */
+.blend-top {
+    position: relative;
+}
+
+.blend-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2000px;
+    background: linear-gradient(to top, rgba(11, 13, 23, 0), rgba(11, 13, 23, 0.4), rgba(11, 13, 23, 0.7), #0b0d17);
+    pointer-events: none;
+}
+
+/* Golden Border around Hero Content */
+.golden-frame {
+    position: relative;
+    padding: 50px 100px 60px 100px;
+    border-radius: 50px;
+    /* golden border */
+    border: 1.5px solid #d4af37;
+    /* glow */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Curtain Opening */
+/* intro */
+.page-intro {
+    position: absolute;
+    /* NOT fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+}
+
+.intro-left,
+.intro-right {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to bottom, #0a0a15, #020208);
+}
+
+/* golden edge */
+.intro-left {
+    border-right: 3px solid #d4af37;
+}
+
+.intro-right {
+    border-left: 3px solid #d4af37;
+}
+
+/* animation */
+.page-intro {
+    animation: introHide 2.2s ease forwards;
+    animation-delay: 1s;
+}
+
+.intro-left {
+    animation: leftOpen 2s ease forwards;
+    animation-delay: 1s;
+}
+
+.intro-right {
+    animation: rightOpen 2s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes leftOpen {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes rightOpen {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes introHide {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+
+
+/* Container to center the button
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+/* Button styles */
+.btn {
+    background: linear-gradient(180deg, #0b1020, #121b35);
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(14, 14, 26);
+    color: #e6d8a8;
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+    text-decoration: none;
+
+    /* reflection */
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+}
+
+.btn:active {
+    transform: scale(0.92);
+}
+
+.btn:hover {
+    background: linear-gradient(180deg, #d4af37, #b8962e);
+    background: linear-gradient(270deg,
+            rgba(2, 29, 78, 0.681) 0%,
+            rgba(31, 215, 232, 0.873) 60%);
+    color: rgb(4, 4, 38);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
 }

@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aquaregia 2026 | University Maharaja College</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 
     <div class="stars"></div>
     <div class="twinkling"></div>
 
+
+
     <nav class="navbar">
         <div class="logo">UMCj <span class="gold-text">Aquaregia</span></div>
         <ul class="nav-links">
+            <li><a href="#">Home</a></li>
             <li><a href="#about">The Prophecy</a></li>
-            <li><a href="Events.html">Triwizard Events</a></li>
-            <li><a href="#register" class="btn-primary">Enroll Now</a></li>
+            <li><a href="#events">Triwizard Events</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#register" class="btn-primary">Register Now</a></li>
         </ul>
         <div class="hamburger">
             <span class="bar"></span>
@@ -28,73 +37,69 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
+
+
+
+    <header class="hero" id="main=page">
+        <div class="page-intro">
+            <div class="intro-left"></div>
+            <div class="intro-right"></div>
+        </div> <!-- Background Video --> <video autoplay muted loop playsinline class="bg-video">
+            <source src="assets/Background Video.mp4" type="video/mp4"> Your browser does not support video.
+        </video>
+        <div class="hero-content golden-frame">
             <p class="intro-text">University Maharaja College Presents</p>
             <h1 class="main-title">AQUAREGIA</h1>
             <p class="sub-title">The Chamber of Talents Has Been Opened</p>
             <div class="crest-container">
                 <div class="crest-circle"></div>
             </div>
-            <p class="date">Jaipur • March 2026</p>
-            <a href="#register" class="cta-button">Accio Tickets</a>
+            <p class="date">Jaipur • March 2026</p> 
+            <a href="#register" class="btn">Register Now</a>
         </div>
-    </header>
-
-    <div id="cursor" class="magic-cursor"></div>
-
-    <!-- Background -->
-    <canvas id="snow"></canvas>
-    <div class="main"></div>
-
+    </header> 
+    
     <!-- About Section (Prophecy) -->
     <section id="about" class="section reveal">
         <div class="parchment-bg">
             <h2>The Prophecy</h2>
-            <p>
-                Wizards, Witches, and Muggles of Jaipur! The time has come to raise your wands. 
-                <strong>University Maharaja College</strong> invites you to the most magical gathering of the year. 
-                Prepare for a night where science meets sorcery, and logic meets legend.
-            </p>
+            <p> Wizards, Witches, and Muggles of Jaipur! The time has come to raise your wands. <strong>University
+                    Maharaja College</strong> invites you to the most magical gathering of the year. Prepare for a night
+                where science meets sorcery, and logic meets legend. </p>
         </div>
-    </section>
-
-        <!-- NEW SECTION: What is Aquaregia -->
-    <section id="alchemy" class="section reveal">
+        <div class="prophecy-skyline"> <img src="assets/horizons_village.png" class="city"> </div>
+    </section> <!-- NEW SECTION: What is Aquaregia -->
+    <section id="alchemy" class="section reveal blend-bottom">
         <div class="bubbles">
-            <div class="bubble"></div><div class="bubble"></div>
-            <div class="bubble"></div><div class="bubble"></div>
-            <div class="bubble"></div><div class="bubble"></div>
-            <div class="bubble"></div><div class="bubble"></div>
-            <div class="bubble"></div><div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
         </div>
-
         <div class="alchemy-container">
             <h2>The Alchemy of Aquaregia</h2>
-            
             <div class="chemical-formula">HNO₃ + 3 HCl</div>
-            
             <p class="definition">"The Royal Water"</p>
-
             <div class="alchemy-text">
-                <p>
-                    In the world of science, <strong>Aqua Regia</strong> is a potent mixture, the only substance capable of dissolving gold—the noblest of metals.
-                    <br><br>
-                    In our world, <strong>Aquaregia 2026</strong> is the crucible. It is a mixture of Art, Technology, Music, and Intellect. It dissolves the barriers between departments and refines the raw talent of every student into pure gold. 
-                    <br><br>
-                    Just as the potion requires precision, our fest requires passion. UMC's historic grounds will transform into a laboratory of dreams where memories are brewed.
-                </p>
+                <p> In the world of science, <strong>Aqua Regia</strong> is a potent mixture, the only substance capable
+                    of dissolving gold—the noblest of metals. <br><br> In our world, <strong>Aquaregia 2026</strong> is
+                    the crucible. It is a mixture of Art, Technology, Music, and Intellect. It dissolves the barriers
+                    between departments and refines the raw talent of every student into pure gold. <br><br> Just as the
+                    potion requires precision, our fest requires passion. UMC's historic grounds will transform into a
+                    laboratory of dreams where memories are brewed. </p>
             </div>
         </div>
-    </section>
-
-
-        <!-- Council / Committee Section -->
-    <section id="council" class="section reveal">
+        <div class="section-skyline"> <img src="assets/horizons_train.png" class="city"> </div>
+    </section> <!-- Council / Committee Section -->
+    <section id="council" class="section reveal blend-top">
         <div class="parchment-bg" style="max-width: 1100px;">
-            <h2>The Wizards' Council</h2>
-            
-            <!-- Chief Patrons -->
+            <h2>The Wizards' Council</h2> <!-- Chief Patrons -->
             <div class="council-block">
                 <h3>Chief Patrons</h3>
                 <div class="council-grid">
@@ -107,16 +112,12 @@
                         <div class="member-role">Principal, UMCJ</div>
                     </div>
                     <div class="member-card patron-card">
-                        <div class="photo-frame">
-                            <span class="photo-placeholder">PHOTO</span>
-                        </div>
+                        <div class="photo-frame"> <span class="photo-placeholder">PHOTO</span> </div>
                         <div class="member-name">Prof. Minerva McGonagall</div>
                         <div class="member-role">Vice Principal, UMCJ</div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Co-Conveners -->
+            </div> <!-- Co-Conveners -->
             <div class="council-block">
                 <h3>Co-Conveners</h3>
                 <div class="council-grid">
@@ -141,9 +142,7 @@
                         <div class="member-role">Co-Convener</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Organising Secretaries -->
+            </div> <!-- Organising Secretaries -->
             <div class="council-block">
                 <h3>Organising Secretaries</h3>
                 <div class="council-grid">
@@ -168,9 +167,7 @@
                         <div class="member-role">Secretary</div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Organising Committee -->
+            </div> <!-- Organising Committee -->
             <div class="council-block">
                 <h3>Organising Committee</h3>
                 <div class="council-grid">
@@ -214,12 +211,12 @@
                         <div class="member-name">Cedric Diggory</div>
                         <div class="member-role">Committee Member</div>
                     </div>
-                     <div class="member-card">
+                    <div class="member-card">
                         <div class="photo-frame"><span class="photo-placeholder">PHOTO</span></div>
                         <div class="member-name">Cho Chang</div>
                         <div class="member-role">Committee Member</div>
                     </div>
-                     <div class="member-card">
+                    <div class="member-card">
                         <div class="photo-frame"><span class="photo-placeholder">PHOTO</span></div>
                         <div class="member-name">Viktor Krum</div>
                         <div class="member-role">Committee Member</div>
@@ -228,16 +225,12 @@
             </div>
         </div>
     </section>
-
-
     <footer class="index-footer">
         <p>Mischief Managed.</p>
         <p>University Maharaja College, Jaipur</p>
-        <div class="socials">
-            <span>Instagram</span> • <span>Facebook</span> • <span>Owl Post</span>
-        </div>
+        <div class="socials"> <span>Instagram</span> • <span>Facebook</span> • <span>Owl Post</span> </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
+
 </html>
