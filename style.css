@@ -1205,3 +1205,118 @@ h2 {
     color: rgb(4, 4, 38);
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
 }
+
+
+
+/* ResponsiveNess */
+
+@media (max-width: 768px){
+
+.nav-links{
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(10,10,18,0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transition: 0.4s ease;
+}
+
+.nav-links.active{
+    right: 0;
+}
+
+.hamburger{
+    display: block;
+    cursor: pointer;
+}
+
+}
+
+
+
+/* Hero Section */
+
+@media (max-width:768px){
+
+.main-title{
+    font-size: 2.3rem;
+}
+
+.sub-title{
+    font-size: 1rem;
+}
+
+.golden-frame{
+    padding: 30px 25px;
+}
+
+}
+
+/* Sections */
+@media (max-width:768px){
+
+.section{
+    padding: 4rem 1.5rem;
+}
+
+.parchment-bg{
+    padding: 2rem;
+}
+
+.alchemy-text{
+    font-size: 1rem;
+}
+
+}
+
+
+/* Council Cards */
+
+@media (max-width:768px){
+
+.council-grid{
+    flex-direction: column;
+}
+
+.member-card{
+    width: 100%;
+}
+
+.photo-frame{
+    width: 120px;
+    height: 120px;
+}
+
+}
+
+/* Footer Responsive */
+
+@media (max-width:768px){
+
+.index-footer{
+    text-align: center;
+}
+
+.footer-icons{
+    justify-content: center;
+}
+
+}
+
+
+/* Global Fix */
+
+img, video{
+    max-width:100%;
+    height:auto;
+}
+
+body{
+    overflow-x:hidden;
+}
+
