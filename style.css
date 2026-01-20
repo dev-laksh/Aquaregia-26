@@ -29,14 +29,15 @@
 body {
     cursor: none;
 }
+
 * {
     cursor: none !important;
 }
 
 /* background */
-.main{
+.main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(BG\ 2.png);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(BG\ 2.png);
     background-position: center;
     background-size: cover;
     height: 109vh;
@@ -49,19 +50,21 @@ body {
     position: absolute;
     width: 8px;
     height: 8px;
-    background: white; /* Bright white core */
+    background: white;
+    /* Bright white core */
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
-    
+
     /* Multiple layers of glow for a 'Bloom' effect */
-    box-shadow: 
-        0 0 10px #fff, 
-        0 0 20px #ffd700, 
-        0 0 40px #ffcc00, 
+    box-shadow:
+        0 0 10px #fff,
+        0 0 20px #ffd700,
+        0 0 40px #ffcc00,
         0 0 60px #ff8800;
-        
-    mix-blend-mode: screen; /* Makes it look like actual light */
+
+    mix-blend-mode: screen;
+    /* Makes it look like actual light */
     animation: disappear 1s ease-out forwards;
 }
 
@@ -70,13 +73,16 @@ body {
         transform: scale(1.5) translate(0, 0);
         opacity: 1;
     }
+
     100% {
         /* This makes the spark drift slightly as it fades */
         transform: scale(0) translate(var(--dx), var(--dy));
         opacity: 0;
     }
 }
-a:hover, button:hover {
+
+a:hover,
+button:hover {
     transform: scale(1.05);
     transition: 0.2s;
 }
@@ -193,7 +199,7 @@ body {
 }
 
 .btn-primary:hover {
-     background: linear-gradient(180deg, #d4af37, #b8962e);
+    background: linear-gradient(180deg, #d4af37, #b8962e);
     background: linear-gradient(270deg,
             rgba(2, 29, 78, 0.681) 0%,
             rgba(31, 215, 232, 0.873) 60%);
@@ -387,11 +393,12 @@ h2 {
 }
 
 .photo-frame {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    /* border-radius: 50%; */
     border: 3px solid #5d4037;
     background: #d7ccc8;
+    background-position: center 50%;
     /* Placeholder background */
     margin-bottom: 1rem;
     overflow: hidden;
@@ -401,6 +408,7 @@ h2 {
     box-shadow: 0 4px 10px rgba(62, 39, 35, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 /* Hover Effect: Magical Levitation */
 .member-card:hover .photo-frame {
@@ -702,13 +710,149 @@ h2 {
     box-shadow: 0 5px 15px rgba(62, 39, 35, 0.3);
 }
 
-/* --- Footer --- */
+
+
+/* FOOTER */
 .index-footer {
-    padding: 3rem 1rem;
-    text-align: center;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-    background: #000;
+    opacity: 0.8;
+    background: #f0e6d2 !important;
+    padding: 60px 40px !important;
+    color: #4a2f1c !important;
+    text-decoration: none;
 }
+
+/* Footer glow text */
+.index-footer h2,
+.index-footer h3,
+.index-footer p,
+.index-footer a {
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #d4af37,
+        0 0 20px #d4af37,
+        0 0 40px rgba(212, 175, 55, 0.8);
+}
+
+.index-footer {
+    text-align: center;
+}
+
+.index-footer .footer-bottom {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #d4af37,
+        0 0 20px #d4af37,
+        0 0 40px rgba(212, 175, 55, 0.8);
+}
+
+
+/* grid */
+.index-footer .footer-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 40px !important;
+}
+
+
+/* logo */
+.index-footer .footer-logo {
+    font-size: 28px !important;
+    color: #b57b2b !important;
+}
+
+/* spacing between footer columns */
+.index-footer .footer-container > div{
+    line-height: 1.8;
+}
+
+/* spacing between text lines */
+.index-footer p{
+    margin: 8px 0;
+}
+
+/* spacing between links */
+.index-footer a{
+    text-decoration: none;
+    display: inline-block;
+    margin: 6px 0;
+}
+
+/* spacing under headings */
+.index-footer h3{
+    margin-bottom: 12px;
+}
+
+/* logo spacing */
+.index-footer .footer-logo{
+    margin-bottom: 15px;
+}
+
+
+
+/* headings */
+.index-footer h3 {
+    color: #8b4a16 !important;
+}
+
+/* links */
+.index-footer a {
+    color: #4a2f1c !important;
+}
+
+.index-footer a:hover {
+    color: #d4af37 !important;
+}
+
+
+
+/* divider */
+.index-footer .footer-divider {
+    border-top: 1px solid #8b4a16 !important;
+    margin: 40px 0 !important;
+}
+
+
+
+.footer-icons{
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.footer-icons img{
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 5px #d4af37);
+}
+
+#link{
+    width: 40px;
+    height: 40px;
+}
+
+.footer-icons img:hover{
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px #d4af37);
+}
+
+/* Center icons under Contact Us */
+.index-footer .footer-icons{
+    display: flex;
+    justify-content: center;  /* CENTER */
+    align-items: center;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+
+
+
+
 
 /* --- Animation Utilities --- */
 @keyframes float {
@@ -1061,6 +1205,3 @@ h2 {
     color: rgb(4, 4, 38);
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
 }
-
-
-
