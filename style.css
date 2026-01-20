@@ -10,6 +10,7 @@
     --font-heading: 'Cinzel', serif;
     --font-body: 'MedievalSharp', cursive;
 }
+
 /* cursor */
 /* Magic Wand Cursor */
 #cursor.magic-cursor {
@@ -22,7 +23,7 @@
     background-size: contain;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    z-index: 9999;
+    z-index: 99999;
 }
 
 body {
@@ -41,15 +42,7 @@ body {
     height: 109vh;
 }
 
-#snow{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:10;   /* snow on top */
-  pointer-events:none;
-}
+
 /* The magic trail particles */
 /* Enhanced Magic Spark */
 .magic-spark {
@@ -1087,3 +1080,6 @@ h2 {
     color: rgb(4, 4, 38);
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
 }
+
+
+
