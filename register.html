@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Decree | Aquaregia 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Shared Theme CSS --- */
+        :root {
+            --bg-dark: #050508;
+            --gold: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.6);
+            --parchment: #f0e6d2;
+            --gryffindor: #740001;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'MedievalSharp', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #3e2723; /* Dark brown text for parchment readability */
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Background Animation --- */
+        .stars {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: -2;
+        }
+        .stars::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 2px; background: white;
+            box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff, 
+                        50vw 90vh #fff, 60vw 20vh #fff, 70vw 60vh #fff, 80vw 40vh #fff;
+            opacity: 0.5;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 2rem; background: rgba(5, 5, 8, 0.95);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; font-family: var(--font-heading); color: #fff; }
+        .gold-text { color: var(--gold); }
+        .nav-links { list-style: none; display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--parchment); transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        .btn-primary {
+            border: 1px solid var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            color: var(--parchment) !important;
+        }
+        
+        .btn-primary:hover {
+            background: var(--gold);
+            color: var(--bg-dark) !important;
+        }
+
+        /* --- Registration Form Section --- */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 20px 50px;
+        }
+
+        .scroll-paper {
+            background-color: var(--parchment);
+            width: 100%;
+            max-width: 800px;
+            padding: 4rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            /* Ancient Paper Texture */
+            background-image: url("https://www.transparenttextures.com/patterns/aged-paper.png");
+            clip-path: polygon(
+                0% 2%, 2% 0%, 98% 0%, 100% 2%, 
+                100% 98%, 98% 100%, 2% 100%, 0% 98%
+            );
+        }
+
+        .scroll-paper::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 2px solid #5d4037;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #3e2723;
+            padding-bottom: 1rem;
+        }
+
+        .form-header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #3e2723;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            font-style: italic;
+            color: #5d4037;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-heading);
+            font-weight: bold;
+            color: #3e2723;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 10px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #3e2723;
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            color: #2c1a16;
+            transition: 0.3s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-bottom-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        /* Checkbox Grid */
+        .events-label { margin-bottom: 1rem; display: block; font-family: var(--font-heading); font-weight: bold; font-size: 1.2rem; border-bottom: 1px dashed #5d4037; padding-bottom: 5px; margin-top: 2rem;}
+        
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            accent-color: #3e2723;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Submit Button (Wax Seal Style) */
+        .submit-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .submit-btn {
+            background: #740001; /* Wax Red */
+            color: #fff;
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.5);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            background: #8a0001;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .submit-btn::before {
+            content: "✦";
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--parchment);
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .scroll-paper { padding: 2rem; }
+            .checkbox-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Layer -->
+    <div class="stars"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">UMC <span class="gold-text">Aquaregia</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="contact.html">Owl Post</a></li>
+            <li><a href="faq.html">The Quibbler</a></li>
+            <li><a href="register.html" class="btn-primary" style="background:var(--gold); color:var(--bg-dark)!important;">Enroll</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="scroll-paper">
+            <header class="form-header">
+                <h1>Decree of Participation</h1>
+                <p>"By signing this parchment, you agree to engage in magical mischief."</p>
+            </header>
+
+            <form action="#" method="POST">
+                
+                <!-- Personal Info -->
+                <div class="form-group">
+                    <label class="form-label">Wizard / Witch Name</label>
+                    <input type="text" class="form-input" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">School of Magic (College/Institute)</label>
+                    <input type="text" class="form-input" placeholder="e.g. University Maharaja College" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div class="form-group">
+                        <label class="form-label">Year of Study</label>
+                        <select class="form-select">
+                            <option>1st Year (Fresher)</option>
+                            <option>2nd Year (Apprentice)</option>
+                            <option>3rd Year (Scholar)</option>
+                            <option>Post Graduate (Master)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Scroll Frequency (Phone)</label>
+                        <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Owl Address (Email)</label>
+                    <input type="email" class="form-input" placeholder="wizard@example.com" required>
+                </div>
+
+                <!-- Event Selection -->
+                <label class="events-label">Select Your Triwizard Tasks</label>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="event"> Battle of Bands
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="event"> Tech Hackathon
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="event"> Science Quiz
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="event"> Art Gallery Exhibition
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="event"> Debate Wars
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="event"> Quidditch (Sports)
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <div class="submit-container">
+                    <button type="submit" class="submit-btn">Send via Owl</button>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">*Registration confirms you are not a Death Eater.</p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>University Maharaja College, Jaipur</p>
+    </footer>
+
+</body>
+</html>
