@@ -121,6 +121,7 @@ body {
 }
 
 /* --- Navbar --- */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -161,7 +162,7 @@ body {
     position: relative;
 }
 
-.nav-links a::after {
+.nav-links a:not(.btn-primary)::after {
     content: '';
     position: absolute;
     width: 0;
@@ -172,11 +173,11 @@ body {
     transition: width 0.3s;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover:not(.btn-primary)::after {
     width: 100%;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.btn-primary):hover {
     color: var(--gold);
     text-shadow: 0 0 10px var(--gold);
 }
@@ -187,20 +188,21 @@ body {
     border: 1px solid rgba(212, 175, 55, 0.6);
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
     transition: 0.3s ease;
-    border: 1px solid var(--gold);
     padding: 0.5rem 1rem;
-    border-radius: 4px;
     margin-left: 200px;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(180deg, #d4af37, #b8962e);
-    color: #0a0a15;
+     background: linear-gradient(180deg, #d4af37, #b8962e);
+    background: linear-gradient(270deg,
+            rgba(2, 29, 78, 0.681) 0%,
+            rgba(31, 215, 232, 0.873) 60%);
+    color: rgb(4, 4, 38);
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
-    background: var(--gold);
-    color: var(--bg-dark);
-    text-shadow: none;
+    /* text-shadow: none; */
 }
+
+
 
 
 /* MAIN SKY BACKGROUND */
@@ -307,27 +309,6 @@ body {
     border-bottom: 1px solid var(--gold);
     padding: 10px 20px;
     margin-bottom: 2rem;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: transparent;
-    color: var(--gold);
-    border: 2px solid var(--gold);
-    text-decoration: none;
-    font-family: var(--font-heading);
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-button:hover {
-    background: var(--gold);
-    color: var(--bg-dark);
-    box-shadow: 0 0 30px var(--gold-glow);
 }
 
 /* --- Section Defaults --- */
