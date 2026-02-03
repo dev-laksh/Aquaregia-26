@@ -128,3 +128,4 @@ function generatePageName(eventName, genre) {
     ".html"
   );
 }
+

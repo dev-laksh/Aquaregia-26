@@ -26,14 +26,6 @@
     z-index: 99999;
 }
 
-body {
-    cursor: none;
-}
-
-* {
-    cursor: none !important;
-}
-
 /* background */
 .main {
     width: 100%;
@@ -1296,7 +1288,7 @@ h2 {
 
 /* Footer Responsive */
 
-@media (max-width:768px){
+@media (max-width:1024px){
 
 .index-footer{
     text-align: center;
@@ -1320,3 +1312,136 @@ body{
     overflow-x:hidden;
 }
 
+/* =========================
+   Responsive Navbar Styling
+   ========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1a152e; /* Match your bg */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    color: #e0dcd0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #c5a059; /* Your accent gold */
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #c5a059;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   STRICT MOBILE NAV FIX
+   ========================================= */
+@media screen and (max-width: 1360px) {
+    
+    /* 1. Ensure Hamburger is VISIBLE and ON TOP */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;  /* Essential: Width */
+        height: 21px; /* Essential: Height */
+        z-index: 2001; /* Ensure it's on top */
+        cursor: pointer;
+    }
+
+    /* 2. Force the Menu Hidden by Default */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%; /* Full screen width */
+        background-color: #1a152e;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        
+        /* The Hiding Mechanism */
+        transform: translateX(100%); /* Push it 100% to the right (off-screen) */
+        transition: transform 0.3s ease-in-out;
+        z-index: 1500; /* High, but lower than hamburger */
+    }
+
+    /* 3. The Active State (Slide In) */
+    .nav-links.active {
+        transform: translateX(0%); /* Bring it back to center */
+    }
+
+    /* 4. Hamburger Animation (Optional but helpful visual cue) */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    /* Fix for Register Button Alignment in Mobile Menu */
+    .nav-links li:last-child {
+        /* This targets the 'li' that holds the button */
+        margin-top: 20px;       /* Give it some space from the link above */
+        width: 100%;            /* Ensure the list item spans full width */
+        display: flex;          /* Use flexbox to center the button inside the li */
+        justify-content: center; /* Perfect horizontal centering */
+    }
+    .nav-links .btn-primary {
+        /* Reset any desktop margins that might be pushing it sideways */
+        margin: 0; 
+        
+        /* Optional: Make it slightly wider on mobile for easier tapping */
+        width: 80%; 
+        text-align: center;
+    }
+
+    .bar {
+        display: block;
+        width: 100%;
+        height: 3px; /* Thickness of the lines */
+        background-color: #c5a059 !important; /* Force Gold Color */
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+}
+
+.nav-links.active {
+    /* If you used transform before */
+    transform: translateX(0%) !important; 
+
+    /* If you used left before */
+    left: 0 !important; 
+}

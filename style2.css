@@ -12,6 +12,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
     font-family: 'Playfair Display', serif;
     color: var(--text-gold);
     overflow-x: hidden;
+    cursor: none;
 }
 
 /* --- Main Section Alignment --- */
@@ -249,3 +251,103 @@ body {
 .close-btn:hover {
   color: #fff;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN (Mobile & Tablet)
+   Add this to the bottom of your CSS file
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+    
+    /* 1. Resize the Layout Variables */
+    :root {
+        /* Shrink cards for tablet/mobile */
+        --card-width: 220px; 
+        --card-height: 350px;
+    }
+
+    /* 2. Adjust Main Section Padding */
+    .events-section {
+        padding-top: 80px; /* Less top padding on mobile */
+        justify-content: flex-start; /* Stop centering vertically, let it flow */
+    }
+
+    /* 3. Header Text Sizing */
+    .section-header h1 {
+        font-size: 1.5rem; /* Smaller font for "Discover..." */
+        letter-spacing: 1px;
+    }
+    
+    .section-header {
+        margin-bottom: 20px;
+        gap: 8px; /* Tighter gap between diamonds and text */
+    }
+
+    .decorative-line {
+        width: 40px; /* Shorter lines */
+    }
+
+    /* 4. Carousel Adjustments */
+    .carousel-wrapper {
+        width: 100%; /* Use full width */
+    }
+
+    .carousel-track {
+        gap: 15px; /* Tighter spacing between cards */
+        padding: 20px 10px; /* Less padding on sides */
+        scroll-padding: 0 50%; /* Helps snap to center accurately */
+    }
+
+    /* 5. Navigation Buttons (Hide on mobile, use swipe instead) */
+    .nav-btn {
+        display: none; /* Hide arrows on mobile to prevent overlap */
+    }
+
+    /* 6. Wizard Card Tweaks */
+    .wizard-card {
+        border-radius: 100px; /* Slightly less round to save content space */
+    }
+
+    .wizard-card-content h3 {
+        font-size: 1.2rem; /* Smaller text inside card */
+        bottom: 20px; /* Move text slightly lower */
+    }
+
+    /* 7. Modal Mobile Fixes */
+    .modal-content {
+        width: 95%; /* Take up almost full width */
+        margin: 20% auto; /* More margin from top */
+        padding: 1.5rem;
+        max-height: 80vh; /* Prevent modal from being taller than screen */
+        overflow-y: auto; /* Allow scrolling inside modal if list is long */
+    }
+
+    .genre-card-grid {
+        grid-template-columns: 1fr; /* Stack genre buttons vertically */
+        gap: 1rem;
+    }
+
+    body{
+        cursor:none
+    }
+}
+
+/* =========================================
+   EXTRA SMALL DEVICES (Small Phones < 400px)
+   ========================================= */
+@media screen and (max-width: 400px) {
+    :root {
+        --card-width: 180px; 
+        --card-height: 280px;
+    }
+    
+    .wizard-card {
+        border-radius: 90px;
+    }
+
+    body{
+        cursor: none;
+    }
+}
+
+
