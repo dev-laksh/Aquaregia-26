@@ -1379,28 +1379,38 @@ body{
 
     /* 2. Force the Menu Hidden by Default */
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 100%; /* Full screen width */
-        background-color: #1a152e;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
+        /* 1. FORCE FIXED POSITIONING */
+        position: fixed !important; /* 'fixed' locks it to the screen, not the page */
         
-        /* The Hiding Mechanism */
-        transform: translateX(100%); /* Push it 100% to the right (off-screen) */
-        transition: transform 0.3s ease-in-out;
-        z-index: 1500; /* High, but lower than hamburger */
+        /* 2. STRETCH TO ALL 4 CORNERS (The Magic Fix) */
+        inset: 0 !important; /* Short for top:0; right:0; bottom:0; left:0; */
+        
+        /* 3. SIZE & BACKGROUND */
+        width: 100vw !important;
+        height: 100vh !important;
+        background-color: #1a152e; /* Your dark purple bg */
+        
+        /* 4. LAYOUT CONTENT */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center items vertically */
+        align-items: center;     /* Center items horizontally */
+        gap: 2rem;               /* Space between links */
+        padding: 0;
+        margin: 0;
+
+        /* 5. ANIMATION & VISIBILITY */
+        transform: translateX(100%); /* Start hidden to the right */
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1999; /* High Z-Index so it covers EVERYTHING */
     }
 
     /* 3. The Active State (Slide In) */
     .nav-links.active {
-        transform: translateX(0%); /* Bring it back to center */
+        transform: translateX(0) !important; /* Bring it back to center */
     }
 
+    
     /* 4. Hamburger Animation (Optional but helpful visual cue) */
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
@@ -1427,6 +1437,10 @@ body{
         width: 80%; 
         text-align: center;
     }
+    .nav-links::before, .nav-links::after {
+    content: '';
+    flex: 1; /* Pushes content to center */
+    min-height: 20px;
 
     .bar {
         display: block;
@@ -1436,6 +1450,23 @@ body{
         border-radius: 3px;
         transition: all 0.3s ease;
     }
+
+    .nav-links{
+        flex-direction: column;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        overflow-y: auto;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+    
+    .nav-links li a {
+        font-size: 1.5rem; /* Larger text for mobile */
+    }
 }
 
 .nav-links.active {
@@ -1444,4 +1475,5 @@ body{
 
     /* If you used left before */
     left: 0 !important; 
+}
 }
