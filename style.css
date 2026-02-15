@@ -1320,12 +1320,13 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #1a152e; /* Match your bg */
+    background: transparent;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .nav-links {
