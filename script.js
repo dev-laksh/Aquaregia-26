@@ -5,13 +5,17 @@ if(window.innerWidth < 768){
 
 
 // ===== MAGIC CURSOR =====
-const cursor = document.getElementById("cursor");
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
-document.addEventListener('mousemove', (e) => {
-   cursor.style.left = e.clientX + "px";
-   cursor.style.top = e.clientY + "px";
-   createSpark(e.pageX, e.pageY);
-});
+    const cursor = document.getElementById("cursor");
+
+    document.addEventListener("mousemove", e => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+        createSpark(e.pageX, e.pageY);
+    });
+
+}
 
 function createSpark(x, y) {
     const spark = document.createElement('div');

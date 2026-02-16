@@ -11,6 +11,18 @@
     --font-body: 'MedievalSharp', cursive;
 }
 
+
+/* Disable magic cursor on touch devices */
+@media (hover: none) and (pointer: coarse){
+    #cursor.magic-cursor{
+        display: none !important;
+    }
+}
+
+
+
+
+
 /* cursor */
 /* Magic Wand Cursor */
 #cursor.magic-cursor {
