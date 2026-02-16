@@ -292,9 +292,9 @@ body {
 
 /* FOOTER */
 .index-footer {
-    opacity: 0.8;
+    opacity: 0.9;
     background: #f0e6d2 !important;
-    padding: 60px 40px !important;
+    padding: 30px 20px !important;
     color: #4a2f1c !important;
     text-decoration: none;
 }
@@ -332,6 +332,7 @@ body {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
     gap: 40px !important;
+    align-items: center;
 }
 
 
@@ -342,32 +343,31 @@ body {
 }
 
 /* spacing between footer columns */
-.index-footer .footer-container>div {
+.index-footer .footer-container > div{
     line-height: 1.8;
 }
 
 /* spacing between text lines */
-.index-footer p {
+.index-footer p{
     margin: 8px 0;
 }
 
 /* spacing between links */
-.index-footer a {
+.index-footer a{
     text-decoration: none;
     display: inline-block;
     margin: 6px 0;
 }
 
 /* spacing under headings */
-.index-footer h3 {
+.index-footer h3{
     margin-bottom: 12px;
 }
 
 /* logo spacing */
-.index-footer .footer-logo {
-    margin-top: 20px;
-    padding-top: 30px;
-}
+/* .index-footer .footer-logo{
+    margin-bottom: 15px;
+} */
 
 
 
@@ -395,13 +395,13 @@ body {
 
 
 
-.footer-icons {
+.footer-icons{
     display: flex;
     gap: 12px;
     margin-top: 10px;
 }
 
-.footer-icons img {
+.footer-icons img{
     width: 28px;
     height: 28px;
     cursor: pointer;
@@ -409,24 +409,72 @@ body {
     filter: drop-shadow(0 0 5px #d4af37);
 }
 
-#link {
+#link{
     width: 40px;
     height: 40px;
 }
 
-.footer-icons img:hover {
+.footer-icons img:hover{
     transform: scale(1.2);
     filter: drop-shadow(0 0 10px #d4af37);
 }
 
 /* Center icons under Contact Us */
-.index-footer .footer-icons {
+.index-footer .footer-icons{
     display: flex;
-    justify-content: center;
-    /* CENTER */
+    justify-content: center;  /* CENTER */
     align-items: center;
     gap: 14px;
     margin-top: 12px;
+}
+
+
+
+/* Footer Responsive Code */
+@media (max-width: 768px){
+
+    .index-footer{
+        padding: 40px 25px;
+        text-align: center;
+    }
+
+    .index-footer .footer-container{
+        grid-template-columns: 1fr;   /* STACK */
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* Center logo */
+    .index-footer .footer-logo{
+        margin: 10px auto 5px;
+        font-size: 26px;
+    }
+
+    /* Reduce spacing */
+    .index-footer h3{
+        margin-bottom: 8px;
+    }
+
+    .index-footer p,
+    .index-footer a{
+        margin: 4px 0;
+        display: block;
+    }
+
+    /* Center icons */
+    .index-footer .footer-icons{
+        justify-content: center;
+    }
+
+    /* Divider smaller */
+    .index-footer .footer-divider{
+        margin: 25px 0;
+    }
+
+    /* Footer bottom */
+    .index-footer .footer-bottom{
+        font-size: 14px;
+    }
 }
 
 
