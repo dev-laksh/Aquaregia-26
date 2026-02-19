@@ -84,119 +84,168 @@
 
 
 
-        /* --- Shared Theme CSS --- */
-        :root {
-            --bg-dark: #050508;
-            --gold: #d4af37;
-            --gold-glow: rgba(212, 175, 55, 0.6);
-            --parchment: #f0e6d2;
-            --gryffindor: #740001;
-            --font-heading: 'Cinzel', serif;
-            --font-body: 'MedievalSharp', cursive;
-        }
+/* --- Shared Theme CSS --- */
+:root {
+    --bg-dark: #050508;
+    --gold: #d4af37;
+    --gold-glow: rgba(212, 175, 55, 0.6);
+    --parchment: #f0e6d2;
+    --gryffindor: #740001;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'MedievalSharp', cursive;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--parchment);
-            font-family: var(--font-body);
-            line-height: 1.6;
-        }
+body {
+    background-color: var(--bg-dark);
+    color: var(--parchment);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
 
-        /* --- Background Animation --- */
-        .stars {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; z-index: -2;
-        }
-        .stars::after {
-            content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 2px; background: white;
-            box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff, 
-                        50vw 90vh #fff, 60vw 20vh #fff, 70vw 60vh #fff, 80vw 40vh #fff;
-            opacity: 0.5;
-        }
+/* ===== SKY BACKGROUND ===== */
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    background: radial-gradient(circle at top, #3c3f75 0%, #23254a 35%, #0b0d17 80%);
+}
+
+/* ===== MOVING STARS LAYER ===== */
+.twinkling {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    background: url("../assets/stars.png");
+    background-size: 600px;
+    background-repeat: repeat;
+    opacity: 0.45;
+    animation: starMove 120s linear infinite;
+}
+
+@keyframes starMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 1000px 1000px;
+    }
+}
 
 
 
 
 
-        
-        /* --- FAQ Specific Styles --- */
-        .page-header {
-            padding-top: 150px; padding-bottom: 50px; text-align: center;
-        }
 
-        h1 { font-family: var(--font-heading); font-size: 3rem; color: var(--gold); margin-bottom: 1rem; }
+/* --- FAQ Specific Styles --- */
+.page-header {
+    padding-top: 150px;
+    padding-bottom: 50px;
+    text-align: center;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
 
-        .faq-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 1rem;
-            border-radius: 5px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-        .faq-item:hover {
-            border-color: var(--gold);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
-        }
+.faq-item {
+    background: linear-gradient(180deg,
+            rgba(36, 28, 72, 0.85),
+            rgba(11, 13, 23, 0.95));
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 14px;
+    margin-bottom: 1.2rem;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    transition: 0.35s ease;
+}
 
-        .faq-question {
-            width: 100%;
-            padding: 1.5rem;
-            text-align: left;
-            background: none;
-            border: none;
-            color: var(--gold);
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
+.faq-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(212,175,55,0.8);
+    box-shadow:
+        0 0 20px rgba(212,175,55,0.25),
+        0 0 40px rgba(60,50,120,0.35);
+}
 
-        .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
-        }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 1.5rem;
-            color: var(--parchment);
-            opacity: 0.9;
-            background: rgba(0, 0, 0, 0.2);
-        }
+.faq-question {
+    width: 100%;
+    padding: 1.4rem 1.6rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .faq-item.active .faq-answer {
-            padding-bottom: 1.5rem;
-        }
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            h1 { font-size: 2rem; }
-        }
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
 
-  
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
 
- 
+.faq-answer {
+    max-height: none;        /* remove height animation */
+    opacity: 0;
+    transform: scaleY(0.95);
+    transform-origin: top;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    padding: 0 1.5rem;
+    display: none;
+}
+
+/* visible state */
+.faq-item.active .faq-answer {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
 /* FOOTER */
 .index-footer {
     opacity: 0.9;
@@ -250,24 +299,24 @@
 }
 
 /* spacing between footer columns */
-.index-footer .footer-container > div{
+.index-footer .footer-container>div {
     line-height: 1.8;
 }
 
 /* spacing between text lines */
-.index-footer p{
+.index-footer p {
     margin: 8px 0;
 }
 
 /* spacing between links */
-.index-footer a{
+.index-footer a {
     text-decoration: none;
     display: inline-block;
     margin: 6px 0;
 }
 
 /* spacing under headings */
-.index-footer h3{
+.index-footer h3 {
     margin-bottom: 12px;
 }
 
@@ -302,13 +351,13 @@
 
 
 
-.footer-icons{
+.footer-icons {
     display: flex;
     gap: 12px;
     margin-top: 10px;
 }
 
-.footer-icons img{
+.footer-icons img {
     width: 28px;
     height: 28px;
     cursor: pointer;
@@ -316,20 +365,21 @@
     filter: drop-shadow(0 0 5px #d4af37);
 }
 
-#link{
+#link {
     width: 40px;
     height: 40px;
 }
 
-.footer-icons img:hover{
+.footer-icons img:hover {
     transform: scale(1.2);
     filter: drop-shadow(0 0 10px #d4af37);
 }
 
 /* Center icons under Contact Us */
-.index-footer .footer-icons{
+.index-footer .footer-icons {
     display: flex;
-    justify-content: center;  /* CENTER */
+    justify-content: center;
+    /* CENTER */
     align-items: center;
     gap: 14px;
     margin-top: 12px;
@@ -338,48 +388,49 @@
 
 
 /* Footer Responsive Code */
-@media (max-width: 768px){
+@media (max-width: 768px) {
 
-    .index-footer{
+    .index-footer {
         padding: 40px 25px;
         text-align: center;
     }
 
-    .index-footer .footer-container{
-        grid-template-columns: 1fr;   /* STACK */
+    .index-footer .footer-container {
+        grid-template-columns: 1fr;
+        /* STACK */
         gap: 30px;
         text-align: center;
     }
 
     /* Center logo */
-    .index-footer .footer-logo{
+    .index-footer .footer-logo {
         margin: 10px auto 5px;
         font-size: 26px;
     }
 
     /* Reduce spacing */
-    .index-footer h3{
+    .index-footer h3 {
         margin-bottom: 8px;
     }
 
     .index-footer p,
-    .index-footer a{
+    .index-footer a {
         margin: 4px 0;
         display: block;
     }
 
     /* Center icons */
-    .index-footer .footer-icons{
+    .index-footer .footer-icons {
         justify-content: center;
     }
 
     /* Divider smaller */
-    .index-footer .footer-divider{
+    .index-footer .footer-divider {
         margin: 25px 0;
     }
 
     /* Footer bottom */
-    .index-footer .footer-bottom{
+    .index-footer .footer-bottom {
         font-size: 14px;
     }
 }

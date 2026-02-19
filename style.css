@@ -175,6 +175,7 @@ body {
     list-style: none;
     display: flex;
     gap: 2rem;
+    margin-left: 200px;
 }
 
 .nav-links a {
@@ -212,6 +213,7 @@ body {
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
     transition: 0.3s ease;
     padding: 0.5rem 1rem;
+    margin-left: 200px;
 }
 
 .btn-primary:hover {
