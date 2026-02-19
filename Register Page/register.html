@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enrollment Decree | Aquaregia 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="register.css">
 </head>
+
 <body>
 
     <!-- Background Layer -->
     <div class="stars"></div>
+    <div class="twinkling"></div>
+
 
     <nav class="navbar">
         <div class="logo">UMCj <span class="gold-text">Aquaregia</span></div>
@@ -35,71 +40,92 @@
     <div class="container">
         <div class="scroll-paper">
             <header class="form-header">
-                <h1>Decree of Participation</h1>
-                <p>"By signing this parchment, you agree to engage in magical mischief."</p>
+                <h1>Registration Charter</h1>
+                <p>"Declare your presence. Claim your place in the legend of Aquaregia."</p>
             </header>
 
             <form action="#" method="POST">
-                
+
                 <!-- Personal Info -->
                 <div class="form-group">
-                    <label class="form-label">Wizard / Witch Name</label>
+                    <label class="form-label">Full Name of Participant
+                    </label>
                     <input type="text" class="form-input" placeholder="Enter your full name" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">School of Magic (College/Institute)</label>
-                    <input type="text" class="form-input" placeholder="e.g. University Maharaja College" required>
+                    <label class="form-label">Institution / College Name
+                    </label>
+                    <input type="text" class="form-input" placeholder="Enter your College Name" required>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
                     <div class="form-group">
-                        <label class="form-label">Year of Study</label>
-                        <select class="form-select">
-                            <option>1st Year (Fresher)</option>
-                            <option>2nd Year (Apprentice)</option>
-                            <option>3rd Year (Scholar)</option>
-                            <option>Post Graduate (Master)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Scroll Frequency (Phone)</label>
-                        <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+                        <label class="form-label">Contact Number
+                        </label>
+                        <input type="tel" class="form-input" placeholder="Enter your Contact Number" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Owl Address (Email)</label>
-                    <input type="email" class="form-input" placeholder="wizard@example.com" required>
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="Enter your Email Address" required>
                 </div>
 
                 <!-- Event Selection -->
-                <label class="events-label">Select Your Triwizard Tasks</label>
-                <div class="checkbox-grid">
-                    <label class="checkbox-item">
-                        <input type="checkbox" name="event"> Battle of Bands
-                    </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" name="event"> Tech Hackathon
-                    </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" name="event"> Science Quiz
-                    </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" name="event"> Art Gallery Exhibition
-                    </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" name="event"> Debate Wars
-                    </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" name="event"> Quidditch (Sports)
-                    </label>
+                <div class="form-group">
+                    <label class="events-label">Choose Your Event</label>
+                    <select class="form-select" required>
+                        <option value="" disabled selected>Select an event</option>
+                        <option>Solo Dance</option>
+                        <option>Duet Dance</option>
+                        <option>Group Dance (Western)</option>
+                        <option>Group Dance(Western)</option>
+                        <option>Solo Singing</option>
+                        <option>Group Singing</option>
+                        <option>Antakshiri</option>
+                        <option>Nukkad-Natak</option>
+                        <option>AD-Mania</option>
+                        <option>Mono Act</option>
+                        <option>Hackathon</option>
+                        <option>Coding</option>
+                        <option>Graphic Designing</option>
+                        <option>BGMI</option>
+                        <option>Valorant</option>
+                        <option>Creative Capture</option>
+                        <option>Creative Reel</option>
+                        <option>Prop Based Photography</option>
+                        <option>Cinematic Shot</option>
+                        <option>Meme Holic</option>
+                        <option>Youth Parliament</option>
+                        <option>Creative Writing</option>
+                        <option>Devils Advocate</option>
+                        <option>Debate</option>
+                        <option>Poetry</option>
+                        <option>Quiz</option>
+                        <option>Mehfil-e-Sukhan</option>
+                        <option>Poster Making</option>
+                        <option>Rangoli-Making</option>
+                        <option>Sketching</option>
+                        <option>Face Painting</option>
+                        <option>Bottle Brush Painting</option>
+                        <option>Tug of War</option>
+                        <option>Treasure Hunt</option>
+                        <option>Relay Race</option>
+                        <option>Aqua Got Talent</option>
+                        <option>Futsal</option>
+                        <option>Solo Fashion</option>
+                        <option>Group Fashion</option>
+                    </select>
                 </div>
+
 
                 <!-- Submit -->
                 <div class="submit-container">
-                    <button type="submit" class="submit-btn">Send via Owl</button>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">*Registration confirms you are not a Death Eater.</p>
+                    <button type="submit" class="submit-btn">✦Submit</button>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">*Your details will only be used for
+                        event coordination and updates.
+                    </p>
                 </div>
 
             </form>
@@ -128,9 +154,9 @@
             <!-- Menu -->
             <div>
                 <h3>Menu</h3>
-                <p><a href="#">About Us</a></p>
-                <p><a href="#">FAQ</a></p>
-                <p><a href="#">Team</a></p>
+                <p><a href="../index.html#about">About Us</a></p>
+                <p><a href="../FAQ Page/faq.html">FAQ</a></p>
+                <p><a href="../Contact Page/contact.html">Team</a></p>
             </div>
 
             <!-- Contact -->
@@ -166,4 +192,5 @@
     </footer>
 
 </body>
+
 </html>

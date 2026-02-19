@@ -120,29 +120,6 @@ body {
     cursor: none;
 }
 
-/* --- Pure CSS Magical Background (No Images) --- */
-.stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: -2;
-}
-
-/* Creating stars using box-shadows for performance/no-asset dependency */
-.stars::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 2px;
-    background: white;
-    box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff, 50vw 90vh #fff, 60vw 20vh #fff, 70vw 60vh #fff, 80vw 40vh #fff, 90vw 10vh #fff, 95vw 85vh #fff, 5vw 45vh #fff, 15vw 75vh #fff;
-    opacity: 0.5;
-}
 
 /* --- Navbar --- */
 
@@ -1577,6 +1554,49 @@ body{
 
     .council-grid{
         gap: 2rem;
+    }
+
+}
+
+/* ===== HERO MOBILE FIX ===== */
+@media (max-width: 768px){
+
+    .hero{
+        padding: 0 14px;
+    }
+
+    .hero-content{
+        margin-top: 70px;
+        width: 100%;
+    }
+
+    .golden-frame{
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 25px 20px;
+        border-radius: 25px;
+        box-sizing: border-box;
+    }
+
+    .main-title{
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+
+    .sub-title{
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .date{
+        font-size: 1rem;
+        padding: 8px 10px;
+    }
+
+    .btn{
+        width: 100%;
+        max-width: 260px;
     }
 
 }
