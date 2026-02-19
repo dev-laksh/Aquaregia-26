@@ -1,4 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== Touch Swipe Support =====
+let touchStartX = 0;
+let touchEndX = 0;
+
+const track = document.getElementById("track");
+
+track.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+track.addEventListener("touchend", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+  const swipeDistance = touchEndX - touchStartX;
+
+  // Minimum swipe distance threshold
+  if (Math.abs(swipeDistance) < 50) return;
+
+  navMode = "keys";
+
+  if (swipeDistance < 0) {
+    // Swipe left → Next card
+    currentIndex = (currentIndex + 1) % cards.length;
+  } else {
+    // Swipe right → Previous card
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+  }
+
+  setActiveCard(currentIndex);
+}
+
   const cards = document.querySelectorAll(".wizard-card");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
