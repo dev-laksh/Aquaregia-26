@@ -10,7 +10,6 @@ body {
     background-color: var(--deep-blue);
     color: #332211; /* Dark ink color for text on parchment */
     overflow-x: hidden;
-    min-height: 200vh; /* demo – replace with actual content height */
     position: relative;
 }
 
@@ -84,38 +83,35 @@ body {
 /* Parchment Banner Effect */
 /* Parchment Banner using your custom PNG */
 .parchment-banner {
-    /* 1. SOURCE IMAGE */
     background: url('assets-competitions/main title-bg.png') no-repeat center center;
-    background-size: 100% 100%; /* Forces the image to stretch to the full box size */
+    background-size: 100% 100%;
     background-color: transparent;
     border: none;
 
-    /* 2. SET THE SIZE INDEPENDENTLY */
-    width: 1200px;  /* Set this to how wide you want the image */
-    height: 500px;  /* keeps parchment tall enough */
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 12 / 5; /* keeps original shape */
     
-    /* 3. CENTER THE TEXT MANUALLY */
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertical center */
-    align-items: center;     /* Horizontal center */
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
     
-    /* 4. FINE-TUNE TEXT POSITION */
-    /* Since your PNG has a hat on top, the "center" of the image isn't the 
-       center of the parchment. Use a small top margin on the text to push 
-       it down away from the hat. */
-    padding-top: 40px; 
-
-    /* 5. LAYOUT */
-    margin: 0 auto; /* Centers the whole banner on the screen */
+    margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
+
 .parchment-banner h2 {
     /* Now you can set the text size exactly how you like it 
        without it affecting the banner size! */
-    font-size: 3.5rem; 
+   font-size: clamp(1.4rem, 4vw, 3.5rem);
+    font-family: 'Cinzel', serif;
+    color: #2a1b0a;
+    margin: 0;
+    text-align: center;
+    line-height: 1.1;
     font-family: 'Cinzel', serif;
     color: #2a1b0a;
     margin: 0;
@@ -133,11 +129,12 @@ body {
 }
 .intro-text {
     color: #e2c99d;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     max-width: 800px;
-     margin: 20px auto 100px;
+    margin: 30px auto 60px;
     line-height: 1.6;
     font-style: italic;
+    padding: 0 15px;
 }
 
 /* Parchment Card Styling */
@@ -184,6 +181,9 @@ body {
     
 } */
 
+li{
+    font-size: small;
+}
 .centered-title {
     position: relative;
     text-align: center;
@@ -363,4 +363,156 @@ left: -500px;
     /* Animation 1: The pulse gets sped up to 0.4s */
     /* Animation 2: The new magicSpin runs continuously over 3 seconds */
     animation: pulseOrb 0.4s infinite ease-in-out, magicSpin 3s linear infinite;
+}
+/* =========================================
+   RESPONSIVE FIXES – COMPETITION PAGE
+   ========================================= */
+
+@media (max-width: 1024px) {
+
+  .wrapper {
+    padding: 15px;
+  }
+
+  .main-logo {
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+  }
+
+  .parchment-banner {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 12 / 5;
+    background-size: contain;
+    padding-top: 0;
+  }
+
+  .parchment-banner h2 {
+    font-size: 2.2rem;
+  }
+
+  .intro-text {
+    margin: 20px auto 50px;
+    padding: 0 10px;
+  }
+
+  .centered-title {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .centered-title img {
+    position: static;
+    transform: none;
+    margin-right: 10px;
+  }
+
+  .grid-container,
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-coords {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .coord-frame {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  /* Disable floating wizard on smaller screens */
+  .register-wizard-container {
+    display: none;
+  }
+
+  .magical-background img,
+  .magical-background::after {
+    height: 100%;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE (768px and below)
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .main-logo {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .parchment-banner h2 {
+    font-size: 1.8rem;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+  }
+
+  .parchment-card {
+    padding: 15px;
+  }
+
+  li {
+    font-size: 0.85rem;
+  }
+
+  body {
+    min-height: auto;
+  }
+
+}
+@media (max-width: 600px) {
+    .main-logo {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .parchment-banner h2 {
+        line-height: 1.2;
+    }
+}
+@media (max-width: 768px) {
+
+    /* 1️⃣ Remove the parchment banner image */
+    .parchment-banner {
+        background: none;
+        width: 100%;
+        aspect-ratio: auto;
+        padding: 20px 10px;
+    }
+
+    /* 2️⃣ Make Storytelling heading golden */
+    .parchment-banner h2 {
+        font-size: 2rem;
+        color: #d4af37; /* gold */
+        
+        text-shadow:
+            0 0 6px rgba(212,175,55,0.6),
+            0 0 12px rgba(212,175,55,0.5),
+            0 0 20px rgba(212,175,55,0.4);
+
+        background: linear-gradient(
+            180deg,
+            #fff6c5 0%,
+            #f5d76e 25%,
+            #d4af37 50%,
+            #b08d28 75%,
+            #fff2b0 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* 3️⃣ Adjust spacing under heading */
+    .intro-text {
+        margin-top: 10px;
+    }
+
 }

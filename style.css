@@ -44,7 +44,7 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(BG\ 2.png);
     background-position: center;
     background-size: cover;
-    height: 109vh;
+  min-height: 100vh;
 }
 
 
@@ -175,7 +175,6 @@ body {
     list-style: none;
     display: flex;
     gap: 2rem;
-    margin-left: 200px;
 }
 
 .nav-links a {
@@ -213,7 +212,6 @@ body {
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
     transition: 0.3s ease;
     padding: 0.5rem 1rem;
-    margin-left: 200px;
 }
 
 .btn-primary:hover {
@@ -266,7 +264,7 @@ body {
 .hero {
     /* width: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(assets/BG\ 2.png); background-position: center; /* background-attachment: fixed; background-size: cover; */
     position: relative;
-    height: 100vh;
+   min-height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -636,8 +634,8 @@ h2 {
     }
 
     100% {
-        bottom: 1080px;
-        transform: translateX(-50px);
+    bottom: 100vh;
+ transform: translateX(-50px);
         opacity: 0;
     }
 }
@@ -1153,7 +1151,7 @@ h2 {
 /* Golden Border around Hero Content */
 .golden-frame {
     position: relative;
-    padding: 50px 100px 60px 100px;
+    padding: clamp(20px, 5vw, 60px);
     border-radius: 50px;
     /* golden border */
     border: 1.5px solid #d4af37;
@@ -1439,8 +1437,11 @@ body{
 /* =========================================
    STRICT MOBILE NAV FIX
    ========================================= */
-@media screen and (max-width: 1360px) {
+@media screen and (max-width: 992px) {
     
+    body.menu-open{
+    overflow: hidden;
+}
     /* 1. Ensure Hamburger is VISIBLE and ON TOP */
     .hamburger {
         display: flex;
@@ -1551,4 +1552,29 @@ body{
     /* If you used left before */
     left: 0 !important; 
 }
+}
+/* Ultra Large Screens */
+@media (min-width: 1600px){
+    .main-title{
+        font-size: 5rem;
+    }
+
+    .section{
+        padding: 8rem 4rem;
+    }
+}
+@media (max-width: 992px){
+
+    .section{
+        padding: 5rem 2rem;
+    }
+
+    .main-title{
+        font-size: 3rem;
+    }
+
+    .council-grid{
+        gap: 2rem;
+    }
+
 }
