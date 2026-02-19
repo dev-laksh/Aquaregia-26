@@ -184,6 +184,9 @@ body {
     
 } */
 
+li{
+    font-size: small;
+}
 .centered-title {
     position: relative;
     text-align: center;

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owl Post Service | Aquaregia 2026</title>
+    <!-- Importing Magical Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Shared Theme CSS (Same as Landing Page) --- */
+        :root {
+            --bg-dark: #050508;
+            --gold: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.6);
+            --parchment: #f0e6d2;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'MedievalSharp', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            /* Background Image with Dark Overlay for Readability */
+            background-image: linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.85)), url('assets/IMG-20260112-WA0007.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: var(--parchment);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        /* Background Stars */
+        .stars {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: -2;
+        }
+        .stars::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 2px; background: white;
+            box-shadow: 10vw 10vh #fff, 30vw 30vh #fff, 50vw 90vh #fff, 70vw 60vh #fff, 90vw 10vh #fff;
+            opacity: 0.5;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 2rem; background: rgba(5, 5, 8, 0.95);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; font-family: var(--font-heading); color: #fff; }
+        .gold-text { color: var(--gold); }
+        .nav-links { list-style: none; display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--parchment); transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- Page Specific Styles --- */
+        .page-header {
+            padding-top: 150px; padding-bottom: 50px; text-align: center;
+        }
+
+        h1 { font-family: var(--font-heading); font-size: 3rem; color: var(--gold); margin-bottom: 1rem; }
+        
+        .container {
+            max-width: 1100px; margin: 0 auto; padding: 2rem;
+        }
+
+        /* Contact Grid */
+        .contact-category {
+            margin-bottom: 4rem;
+        }
+        
+        .category-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border-color: var(--gold);
+        }
+
+        /* Photo Styles */
+        .contact-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #d7ccc8; /* Placeholder background */
+            border: 2px solid var(--gold);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #5d4037;
+            font-size: 0.8rem;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            transition: 0.3s;
+        }
+
+        .contact-card:hover .contact-photo {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        .contact-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-role {
+            color: var(--gold);
+            font-family: var(--font-heading);
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-name { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        /* Form Section */
+        .form-container {
+            background: var(--parchment);
+            color: #3e2723;
+            padding: 3rem;
+            border-radius: 5px;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .form-container::before {
+            content: "✉";
+            position: absolute; right: 30px; top: 20px;
+            font-size: 3rem; color: rgba(62, 39, 35, 0.1);
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        
+        .form-label {
+            display: block; font-weight: bold; margin-bottom: 0.5rem; font-family: var(--font-heading);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #3e2723;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: #3e2723;
+        }
+
+        .form-input:focus, .form-textarea:focus { outline: none; border-bottom-color: var(--gold); }
+
+        .submit-btn {
+            background: #3e2723; color: var(--parchment);
+            padding: 1rem 2rem; border: none; font-family: var(--font-heading);
+            font-size: 1.1rem; cursor: pointer; transition: 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover { background: var(--gold); color: #3e2723; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .grid { grid-template-columns: 1fr; }
+        }
+
+                .btn-primary {
+            border: 1px solid var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .btn-primary:hover {
+            background: var(--parchment);
+            color: var(--gold);
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <nav class="navbar">
+        <div class="logo">UMC <span class="gold-text">Aquaregia</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#alchemy">The Alchemy</a></li>
+            <li><a href="events.html">Triwizard Events</a></li>
+            <li><a href="#" style="color: var(--gold);">📞Owl Post</a></li>
+            <li><a href="faq.html">❓The Quibbler (FAQ)</a></li>
+                <li><a href="register.html" class="btn-primary" style="background:var(--gold); color:var(--bg-dark)!important;">Enroll</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Owl Post Service</h1>
+        <p style="font-style: italic; opacity: 0.8;">"Any problems? Send a Howler. Need help? Send an Owl."</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Category 1: High Council -->
+        <div class="contact-category">
+            <h2 class="category-title">Head Coordinators</h2>
+            <div class="grid">
+                <div class="contact-card">
+                    <div class="contact-photo">PHOTO</div>
+                    <div class="contact-role">Student Union President</div>
+                    <div class="contact-name">Tom Riddle</div>
+                    <div class="contact-info">📞 +91 98765 43210</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-photo">PHOTO</div>
+                    <div class="contact-role">General Secretary</div>
+                    <div class="contact-name">Percy Weasley</div>
+                    <div class="contact-info">📞 +91 91234 56789</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2: Event Specific -->
+        <div class="contact-category">
+            <h2 class="category-title">Realm Prefects (Event Leads)</h2>
+            <div class="grid">
+                <div class="contact-card" style="border-left: 3px solid #740001;">
+                    <div class="contact-photo">PHOTO</div>
+                    <div class="contact-role">Performing Arts (Music/Dance)</div>
+                    <div class="contact-name">Filius Flitwick</div>
+                    <div class="contact-info">📞 +91 99887 76655</div>
+                </div>
+                
+                <div class="contact-card" style="border-left: 3px solid #1a472a;">
+                    <div class="contact-photo">PHOTO</div>
+                    <div class="contact-role">Technical & Gaming</div>
+                    <div class="contact-name">Septima Vector</div>
+                    <div class="contact-info">📞 +91 88776 65544</div>
+                </div>
+
+                <div class="contact-card" style="border-left: 3px solid #0e1a40;">
+                    <div class="contact-photo">PHOTO</div>
+                    <div class="contact-role">Literary & Debates</div>
+                    <div class="contact-name">Gilderoy Lockhart</div>
+                    <div class="contact-info">📞 +91 77665 54433</div>
+                </div>
+
+                <div class="contact-card" style="border-left: 3px solid #ecb939;">
+                    <div class="contact-photo">PHOTO</div>
+                    <div class="contact-role">Fine Arts</div>
+                    <div class="contact-name">Dean Thomas</div>
+                    <div class="contact-info">📞 +91 66554 43322</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; margin-top: 2rem; opacity: 0.6; font-size: 0.9rem;">
+        <p>University Maharaja College, Jaipur</p>
+    </footer>
+
+</body>
+</html>
