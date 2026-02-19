@@ -98,12 +98,26 @@ button:hover {
     box-sizing: border-box;
 }
 
+
+/* Wand Remove on Buttons */
+
+a, button, .btn, .btn-primary, input, textarea, select {
+    cursor: none !important;
+}
+
+input, textarea {
+    cursor: text !important;
+}
+
+
+
+
 body {
     /* background-color: var(--bg-dark); */
     color: var(--parchment);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: default;
+    cursor: none;
 }
 
 /* --- Pure CSS Magical Background (No Images) --- */
