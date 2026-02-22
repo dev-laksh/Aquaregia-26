@@ -30,7 +30,7 @@ function handleSwipe() {
     currentIndex = (currentIndex - 1 + cards.length) % cards.length;
   }
 
-  setActiveCard(currentIndex);
+setActiveCard(currentIndex, false);
 }
 
   const cards = document.querySelectorAll(".wizard-card");
@@ -69,11 +69,22 @@ function handleSwipe() {
 ]
 
   };
+function setActiveCard(index, scroll = true) {
+  cards.forEach(card => card.classList.remove("active"));
 
- function setActiveCard(index) { cards.forEach(card => card.classList.remove("active"));
-   if (navMode === "keys") {
-     cards[index].classList.add("active"); } 
-     cards[index].scrollIntoView({ behavior: "smooth", inline: "center" }); }
+  if (navMode === "keys") {
+    cards[index].classList.add("active");
+  }
+
+  // Only scroll if allowed
+  if (scroll) {
+    cards[index].scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest"
+    });
+  }
+}
 
   function openModal(eventName) {
     modalTitle.textContent = eventName;

@@ -798,11 +798,11 @@ body {
     align-items:center;
     padding:15px 30px;
     position:fixed;
+    background: transparent;
     top:0;
     left:0;
     width:100%;
     z-index:99999;
-    background:rgba(0,0,0,0.6);
 }
 
 /* Desktop menu */
@@ -841,7 +841,7 @@ body {
         left:0;
         width:100vw;
         height:100vh;
-        background:#1a152e;
+        background:transparent;
         display:flex;
         flex-direction:column;
         justify-content:center;
