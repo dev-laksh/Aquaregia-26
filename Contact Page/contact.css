@@ -81,6 +81,8 @@
 }
 
 
+
+
 /* --- Shared Theme CSS (Same as Landing Page) --- */
 
  :root {
@@ -785,4 +787,87 @@ body {
 .contact-card {
     background: rgba(18, 16, 40, 0.92);
     border: 1px solid rgba(212,175,55,0.35);
+}
+
+
+
+/* ===== NAVBAR BASE ===== */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:99999;
+    background:rgba(0,0,0,0.6);
+}
+
+/* Desktop menu */
+.nav-links{
+    display:flex;
+    gap:2rem;
+    list-style:none;
+}
+
+/* Hamburger */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.bar{
+    width:25px;
+    height:3px;
+    background:#d4af37;
+    transition:0.3s;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width:992px){
+
+    .hamburger{
+        display:flex;
+        z-index:100001;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        background:#1a152e;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:2rem;
+        transform:translateX(100%);
+        transition:0.4s ease;
+        z-index:100000;
+    }
+
+    .nav-links.active{
+        transform:translateX(0);
+    }
+
+    body.menu-open{
+        overflow:hidden;
+    }
+
+    /* Hamburger animation */
+    .hamburger.active .bar:nth-child(1){
+        transform:translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity:0;
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform:translateY(-8px) rotate(-45deg);
+    }
 }
