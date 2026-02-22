@@ -1269,6 +1269,13 @@ h2 {
     transition: 0.4s ease;
 }
 
+ .btn-primary{
+        margin-left: 0 !important;     /* remove desktop spacing */
+        width: auto !important;        /* prevent stretching */
+        display: inline-block;
+        padding: 0.6rem 1.4rem;
+    }
+
 .nav-links.active{
     right: 0;
 }
