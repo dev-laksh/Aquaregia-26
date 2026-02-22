@@ -581,3 +581,45 @@ body {
         transform:translateY(-8px) rotate(-45deg);
     }
 }
+
+
+/* ===== REGISTER PAGE MOBILE TEXT FIX ===== */
+@media (max-width:768px){
+
+    .scroll-paper{
+        width: 100%;
+        max-width: 100%;
+        padding: 1.4rem 1.2rem;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    /* Allow text to wrap */
+    .scroll-paper *{
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Inputs must shrink inside container */
+    .form-input,
+    .form-select{
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+
+    /* Heading scaling */
+    .form-header h1{
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    /* REMOVE parchment clipping on mobile */
+    .scroll-paper{
+        clip-path: none;
+        border-radius: 12px;
+    }
+
+}
