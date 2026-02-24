@@ -4,6 +4,8 @@
     --deep-blue: #0a0e14;
 }
 
+
+
 body {
     margin: 0;
     font-family: 'EB Garamond', serif;
@@ -199,7 +201,7 @@ li{
 
 .centered-title img {
     position: absolute;
-    left: 45px;                 /* stays on left edge */
+    left: 45px;   
     top: 50%;
     transform: translateY(-50%);
             /* adjust */
@@ -207,7 +209,7 @@ li{
 }
 
 .centered-title {
-   padding-left: 100px; /* ← make at least as wide as your icon */
+   padding-left: 100px; /*← make at least as wide as your icon*/
     /* padding-right: 35px; keeps symmetry */
 }
 
@@ -518,4 +520,90 @@ left: -500px;
         margin-top: 10px;
     }
 
+}
+
+
+
+/* ===== GRID ===== */
+
+.grid-container,
+.details-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  margin-bottom:40px;
+}
+
+/* ===== CARD ===== */
+
+.parchment-card{
+  background-image:url('assets-competitions/scrolls.png');
+  background-size:cover;
+  background-position:center;
+  padding:22px;
+  color:#332211;
+  box-shadow:0 10px 20px rgba(0,0,0,0.35);
+}
+
+/* ===== CARD TITLE ===== */
+
+.card-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;   /* centers icon + heading */
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.card-title img{
+  height:42px;
+  width:auto;
+  object-fit:contain;
+}
+
+.card-title h3{
+  margin:0;
+  font-family:'Cinzel', serif;
+  text-decoration:underline;
+  border-bottom:1px solid rgba(0,0,0,0.2);
+  padding-bottom:4px;
+}
+
+/* ===== TEXT ===== */
+
+.parchment-card p{
+  margin:6px 0;
+}
+
+.parchment-card ul{
+  margin-top:6px;
+}
+
+
+
+/* Background Image Styling */
+
+.magical-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.magical-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 🔥 key line */
+}
+
+/* overlay */
+.magical-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10,14,30,0.35),
+        rgba(10,14,30,0.65)
+    );
 }

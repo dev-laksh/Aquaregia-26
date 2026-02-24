@@ -152,7 +152,7 @@ body {
     list-style: none;
     display: flex;
     gap: 2rem;
-    margin-left: 200px;
+    /* margin-left: 200px; */
 }
 
 .nav-links a {
