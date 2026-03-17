@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
 
     <!-- Background Layer -->
     <div class="stars"></div>
@@ -41,40 +42,54 @@
         <div class="scroll-paper">
             <header class="form-header">
                 <h1>Registration Charter</h1>
-                <p>"Declare your presence. Claim your place in the legend of Aquaregia."</p>
+                <p>"By signing this Charter, you agree to engage in magical mischief of Aquaregia."</p>
             </header>
 
             <form action="#" method="POST">
 
                 <!-- Personal Info -->
                 <div class="form-group">
-                    <label class="form-label">Full Name of Participant
+                    <label class="form-label">Wizard / Witch Name
                     </label>
                     <input type="text" class="form-input" placeholder="Enter your full name" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Institution / College Name
+                    <label class="form-label">Wizarding Team Members
+                    </label>
+                    <input type="text" class="form-input" placeholder="Team Members Name (Comma-Separated)">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Wizarding Institution
                     </label>
                     <input type="text" class="form-input" placeholder="Enter your College Name" required>
                 </div>
 
                 <div>
                     <div class="form-group">
-                        <label class="form-label">Contact Number
+                        <label class="form-label">Wizard / Witch Contact Number
                         </label>
                         <input type="tel" class="form-input" placeholder="Enter your Contact Number" required>
                     </div>
                 </div>
 
+                <div>
+                    <div class="form-group">
+                        <label class="form-label">Wizard / Witch Whatsapp Number
+                        </label>
+                        <input type="tel" class="form-input" placeholder="Enter your Whatsapp Number" required>
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label class="form-label">Email Address</label>
+                    <label class="form-label">Owl Address (Email)</label>
                     <input type="email" class="form-input" placeholder="Enter your Email Address" required>
                 </div>
 
                 <!-- Event Selection -->
                 <div class="form-group">
-                    <label class="events-label">Choose Your Event</label>
+                    <label class="events-label">Select Your Triwizard Events</label>
                     <select class="form-select" required>
                         <option value="" disabled selected>Select an event</option>
                         <option>Solo Dance</option>
@@ -122,7 +137,7 @@
 
                 <!-- Submit -->
                 <div class="submit-container">
-                    <button type="submit" class="submit-btn">✦Submit</button>
+                    <button type="submit" class="submit-btn" id="owlBtn">✦Send via Owl</button>
                     <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">*Your details will only be used for
                         event coordination and updates.
                     </p>

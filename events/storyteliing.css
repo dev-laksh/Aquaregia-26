@@ -24,7 +24,7 @@ body {
 
 .magical-background img {
     width: 100%;
-    height: 240vh;
+    /* height: 240vh; */
     display: block;
     filter: brightness(0.45);
 }
