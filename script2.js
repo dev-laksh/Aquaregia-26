@@ -46,14 +46,14 @@ setActiveCard(currentIndex, false);
   let navMode = "mouse";
 
   const eventGenres = {
-    "Anant": ["Youth parliament", "Devil's Advocate", "Creative Writing"," Storytelling","Debate"," Poetry","Quiz","Mehfil-e-Sukhan"],
-    "Rangshirsh": ["Nukkad-Natak", "AD-Mania", "Mono Act"],
-    "Srijan": ["Poster Making", "Rangoli Making", "Sketching","Face Painting","Bottle Brush Painting"],
-    "Turanya": ["Solo Fashion", "Group Fashion"],
-    "7 Octaves": ["Solo Singing", "Group Singing", "Antakshiri"],
-    "Techyuvas": ["Coding", "Hackathon", "Graphics Designing","BGMI","Valorant"],
-    "Ojas": ["Creative Captures", "Creative Reel", "Prop Based Photography","cinematic shot","Meme Holic"],
-    "Nrityam": [
+    "Literature": ["Youth parliament", "Devil's Advocate", "Creative Writing"," Storytelling","Debate"," Poetry","Quiz","Mehfil-e-Sukhan"],
+    "Dramatics": ["Nukkad-Natak", "AD-Mania", "Mono Act"],
+    "Art": ["Poster Making", "Rangoli Making", "Sketching","Face Painting","Bottle Brush Painting"],
+    "Fashion": ["Solo Fashion", "Group Fashion"],
+    "Music": ["Solo Singing", "Group Singing", "Antakshiri"],
+    "Tech": ["Coding", "Hackathon", "Graphics Designing","BGMI","Valorant"],
+    "Photography": ["Creative Captures", "Creative Reel", "Prop Based Photography","Cinematic shot","Meme Holic"],
+    "Dance": [
   "Solo Dance",
   "Group Dance",
   "Western Dance",
@@ -89,6 +89,11 @@ function setActiveCard(index, scroll = true) {
   function openModal(eventName) {
     modalTitle.textContent = eventName;
     modalGenres.innerHTML = "";
+
+    if (!eventGenres[eventName]) {
+    console.error("Event not found:", eventName);
+    return;
+  }
 
     eventGenres[eventName].forEach(genre => {
   const card = document.createElement("div");
@@ -136,7 +141,7 @@ function setActiveCard(index, scroll = true) {
     } else if (e.key === "Escape" && modal.style.display === "block") {
       modal.style.display = "none";
     } else if (e.key === "Enter") {
-      const eventName = cards[currentIndex].querySelector("h3").textContent;
+      const eventName = cards[currentIndex].dataset.event;
       openModal(eventName);
     }
   });
@@ -150,7 +155,7 @@ function setActiveCard(index, scroll = true) {
   });
 
   cards.forEach((card, idx) => {
-    const eventName = card.querySelector("h3").textContent;
+    const eventName = card.dataset.event;
     card.addEventListener("click", () => openModal(eventName));
     card.setAttribute("tabindex", "0");
     card.addEventListener("keydown", (e) => {

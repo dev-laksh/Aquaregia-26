@@ -151,12 +151,13 @@ body {
 }
 
 .wizard-card-content {
+    height: 40px;
     position: absolute;
     bottom: 40px;
     left: 0;
     width: 100%;
     text-align: center;
-    z-index: 2;
+    z-index: 3;
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     padding-bottom: 10px;
 }
@@ -167,6 +168,9 @@ body {
     color: #fff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
     margin: 0;
+    white-space: nowrap;       /* ❗ prevents line break */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Genre Cards inside Modal */
