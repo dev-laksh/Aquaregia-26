@@ -22,7 +22,6 @@
 
 
 
-
 /* cursor */
 /* Magic Wand Cursor */
 #cursor.magic-cursor {
@@ -124,6 +123,8 @@ body {
 /* --- Navbar --- */
 
 .navbar {
+    height: 60px;              /* 🔥 fix height */
+    padding: 0 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,11 +139,19 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: var(--font-heading);
-    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
+
+.nav-logo {
+    height: 100%;      /* fill navbar height */
+    max-height: 60px;  /* keep some spacing */
+    width: auto;
+    object-fit: contain;
+    animation: float 6s ease-in-out infinite;
+}
+
 .gold-text {
     color: var(--gold);
 }
@@ -251,6 +260,17 @@ body {
     text-align: center;
     padding: 0 1rem;
 }
+
+.hero-logo {
+    width: 420px;      /* increase size */
+    max-width: 90%;
+    height: 100px;
+    display: block;
+    width: clamp(300px, 40vw, 480px);
+    margin: 5px auto;   /* reduce space */
+    animation: float 6s ease-in-out infinite;
+}
+
 
 /* video */
 .bg-video {
@@ -713,6 +733,14 @@ h2 {
     padding: 30px 20px !important;
     color: #4a2f1c !important;
     text-decoration: none;
+}
+
+.footer-logo-img {
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    animation: float 6s ease-in-out infinite;
 }
 
 /* Footer glow text */

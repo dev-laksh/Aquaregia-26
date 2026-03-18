@@ -1,6 +1,8 @@
 /* --- Navbar --- */
 
 .navbar {
+    height: 60px;              /* 🔥 fix height */
+    padding: 0 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,10 +17,17 @@
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: var(--font-heading);
-    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 100%;    /*  fill navbar height */
+    max-height: 60px;  /* keep some spacing */
+    width: auto;
+    object-fit: contain;
+    animation: float 6s ease-in-out infinite;
 }
 
 .gold-text {
@@ -80,6 +89,31 @@
     /* text-shadow: none; */
 }
 
+
+.reg-link{
+    color: inherit;
+}
+
+.event-link{
+    color: inherit;
+}
+
+
+
+/* --- Animation Utilities --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
 
 
 
@@ -242,6 +276,14 @@ h1 {
     padding: 30px 20px !important;
     color: #4a2f1c !important;
     text-decoration: none;
+}
+
+.footer-logo-img {
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    animation: float 6s ease-in-out infinite;
 }
 
 /* Footer glow text */

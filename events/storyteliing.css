@@ -79,6 +79,7 @@ body {
 
     position: relative;
     margin-top: 100px;
+    animation: float 6s ease-in-out infinite;
 }
 
 
